@@ -4,7 +4,7 @@
 
   App.on 'initialize:before', (options) ->
     App.environment = options.environment
-    App.current_user = new Backbone.Model({ name: 'Foo Bar', email: 'foo@email.com' })
+    App.current_user = App.request 'current_user:entity'
 
   App.addRegions
     headerRegion: '#header-region'
