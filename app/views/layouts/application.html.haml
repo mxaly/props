@@ -10,7 +10,12 @@
     = csrf_meta_tags
   %body
     %header
-      = render 'layouts/navigation'
-    %main{:role => "main"}
-      = render 'layouts/messages'
-      = yield
+      .container
+        #header-region
+          = render 'layouts/navigation'
+    %main
+      .container
+        #main-region
+        = yield
+    %footer
+      (c) lubieniebieski 2014
