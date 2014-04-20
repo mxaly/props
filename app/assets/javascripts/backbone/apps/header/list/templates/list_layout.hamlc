@@ -1,0 +1,4 @@
+%h4
+  Signed in as:
+  %small
+    = "#{@name} (#{@email})"
