@@ -2,3 +2,5 @@
   Signed in as:
   %small
     = "#{@name} (#{@email})"
+
+%ul.navigation-links

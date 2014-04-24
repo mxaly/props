@@ -11,6 +11,19 @@
 
       @show @layout
 
+    getNavsView: (navs) ->
+      new List.Navs
+        collection: navs
+
     getLayoutView: (user) ->
-      new List.Layout
+      view = new List.Layout
         model: user
+
+      navs = App.request 'nav:header:entities'
+      navigation_view = @getNavsView navs
+
+      view.on 'show', =>
+        @show navigation_view,
+          region: view.nav_region
+
+      view
