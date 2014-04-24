@@ -9,7 +9,6 @@
       App.execute "register:instance", @, @_instance_id
 
     close: ->
-      console.log "closing", @
       App.execute "unregister:instance", @, @_instance_id
       super
 
@@ -43,7 +42,7 @@
     _manageView: (view, options) ->
       if options.loading
         ## show the loading view
-        App.execute "show:loading", view, options
+        App.execute 'show:loading', view, options
       else
         options.region.show view
 
