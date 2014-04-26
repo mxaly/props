@@ -10,7 +10,8 @@
       @layout = @getLayoutView user
 
       @listenTo @layout, 'show', =>
-        @propsRegion user
+        @givenPropsRegion user
+        @receivedPropsRegion user
 
       @show @layout,
         loading:
@@ -20,7 +21,12 @@
       new Show.Layout
         model: user
 
-    propsRegion: (user) ->
+    givenPropsRegion: (user) ->
+      props = App.request 'prop:entities', propser_id: user.id
+
+      App.commands.execute 'props:list', props, @layout.given_props_region
+
+    receivedPropsRegion: (user) ->
       props = App.request 'prop:entities', user_id: user.id
 
-      App.commands.execute 'props:list', props, @layout.props_region
+      App.commands.execute 'props:list', props, @layout.received_props_region

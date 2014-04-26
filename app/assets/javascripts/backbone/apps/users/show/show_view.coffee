@@ -4,4 +4,5 @@
     template: 'users/show/templates/layout'
 
     regions:
-      props_region: '.props-region'
+      received_props_region: '.received-props-region'
+      given_props_region: '.given-props-region'

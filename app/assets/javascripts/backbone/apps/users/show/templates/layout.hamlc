@@ -9,4 +9,8 @@
   %li
     props ocunt: #{@props_count}
 
-.props-region
+%h3 Received props:
+.received-props-region
+
+%h3 Given props:
+.given-props-region
