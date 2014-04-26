@@ -1,5 +1,12 @@
 class Api::PropsController < AuthenticatedController
   def index
-    render json: Prop.includes(:user, :propser)
+    prop_search = ::PropSearch.new search_params
+    render json: prop_search.results
+  end
+
+  private
+
+  def search_params
+    params.permit :user_id
   end
 end

@@ -152,6 +152,7 @@ GEM
     multi_json (1.9.2)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
+    named (1.1.0)
     nio4r (1.0.0)
     oauth2 (0.9.3)
       faraday (>= 0.8, < 0.10)
@@ -232,6 +233,8 @@ GEM
       sass (~> 3.2.0)
       sprockets (~> 2.8, <= 2.11.0)
       sprockets-rails (~> 2.0)
+    searchlight (3.0.0)
+      named (~> 1.0)
     sendgrid (1.2.0)
       json
     sexp_processor (4.4.3)
@@ -301,6 +304,7 @@ DEPENDENCIES
   rb-inotify
   rspec-rails
   sass-rails (~> 4.0.3)
+  searchlight
   sendgrid
   spring
   thin
