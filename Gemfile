@@ -18,6 +18,7 @@ gem 'sendgrid'
 gem 'thin'
 gem 'gon'
 gem 'js_stack'
+gem 'active_model_serializers'
 
 group :development do
   gem 'better_errors'
