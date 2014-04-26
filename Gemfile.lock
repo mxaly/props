@@ -37,6 +37,9 @@ GEM
     bootstrap-sass (3.1.1.1)
       sass (~> 3.2)
     builder (3.2.2)
+    bullet (4.8.0)
+      activesupport
+      uniform_notifier (>= 1.4.0)
     celluloid (0.15.2)
       timers (~> 1.1.0)
     celluloid-io (0.15.0)
@@ -259,6 +262,7 @@ GEM
     uglifier (2.5.0)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    uniform_notifier (1.5.0)
 
 PLATFORMS
   ruby
@@ -267,6 +271,7 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   bootstrap-sass
+  bullet
   coffee-rails (~> 4.0.0)
   database_cleaner (= 1.0.1)
   email_spec

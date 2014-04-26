@@ -34,6 +34,7 @@ group :development do
   gem 'rb-inotify', require:false
   gem 'ffaker'
   gem 'spring'
+  gem 'bullet'
 end
 
 group :development, :test do
