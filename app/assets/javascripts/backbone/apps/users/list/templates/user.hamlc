@@ -1,1 +1,1 @@
-#{@name} (#{@email})
+%a{ href: "#users/#{@id}" }= @name

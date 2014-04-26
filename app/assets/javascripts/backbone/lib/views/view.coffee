@@ -3,3 +3,5 @@
   _.extend Marionette.View::,
 
     templateHelpers: ->
+      appRoute: (path) ->
+        "#{path}"
