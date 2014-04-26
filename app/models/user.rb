@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   validates_presence_of :name
+  has_many :props
 
   def self.create_with_omniauth(auth)
     create! do |user|
