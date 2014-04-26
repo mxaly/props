@@ -12,5 +12,11 @@
           entities: users
 
     getLayoutView: (users) ->
-      new List.Users
+      view = new List.Users
         collection: users
+
+      @listenTo view, 'itemview:user:clicked', (_iv, args) ->
+        { model } = args
+        App.vent.trigger 'user:clicked', model
+
+      view

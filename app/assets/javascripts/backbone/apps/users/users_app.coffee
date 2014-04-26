@@ -16,3 +16,7 @@
   App.addInitializer ->
     new UsersApp.Router
       controller: API
+
+  App.vent.on 'user:clicked', (user) ->
+    App.navigate "users/#{user.id}"
+    API.show user.id, user
