@@ -8,3 +8,5 @@
     email: #{@email}
   %li
     props ocunt: #{@props_count}
+
+.props-region

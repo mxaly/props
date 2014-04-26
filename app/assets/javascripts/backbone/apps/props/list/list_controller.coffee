@@ -3,7 +3,8 @@
   class List.Controller extends App.Controllers.Application
 
     initialize: (options) ->
-      props = App.request 'prop:entities'
+      { props } = options
+      props ||= App.request 'prop:entities'
 
       @layout = @getLayoutView props
 

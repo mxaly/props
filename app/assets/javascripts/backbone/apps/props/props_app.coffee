@@ -4,9 +4,15 @@
       'props' : 'list'
 
   API =
-    list: (prop) ->
-      new PropsApp.List.Controller
+    list: (options) ->
+      new PropsApp.List.Controller options
 
   App.addInitializer ->
     new PropsApp.Router
       controller: API
+
+  App.commands.setHandler 'props:list', (props, region) ->
+    API.list
+      props: props
+      region: region
+

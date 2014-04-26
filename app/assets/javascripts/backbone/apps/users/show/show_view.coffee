@@ -2,3 +2,6 @@
 
   class Show.Layout extends App.Views.Layout
     template: 'users/show/templates/layout'
+
+    regions:
+      props_region: '.props-region'

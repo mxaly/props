@@ -10,10 +10,11 @@
     url: Routes.api_props_path()
 
   API =
-    getProps: ->
+    getProps: (filters) ->
       props = new Entities.Props
-      props.fetch()
+      props.fetch
+        data: filters if filters
       props
 
-  App.reqres.setHandler 'prop:entities', ->
-    API.getProps()
+  App.reqres.setHandler 'prop:entities', (filters) ->
+    API.getProps filters

@@ -9,6 +9,9 @@
 
       @layout = @getLayoutView user
 
+      @listenTo @layout, 'show', =>
+        @propsRegion user
+
       @show @layout,
         loading:
           entities: user
@@ -16,3 +19,8 @@
     getLayoutView: (user) ->
       new Show.Layout
         model: user
+
+    propsRegion: (user) ->
+      props = App.request 'prop:entities', user_id: user.id
+
+      App.commands.execute 'props:list', props, @layout.props_region
