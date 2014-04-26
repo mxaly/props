@@ -1,0 +1,10 @@
+%h2
+  Displaying
+  %strong #{@name}
+  profile
+
+%ul
+  %li
+    email: #{@email}
+  %li
+    props ocunt: #{@props_count}

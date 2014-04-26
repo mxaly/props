@@ -3,6 +3,7 @@
     defaults:
       name: ''
       email: ''
+    urlRoot: Routes.api_users_path()
 
   class Entities.Users extends Entities.Collection
     model: Entities.User
@@ -17,9 +18,18 @@
       users.fetch()
       users
 
+    getUser: (id) ->
+      user = new Entities.User
+        id: id
+      user.fetch()
+      user
+
   App.reqres.setHandler 'current_user:entity', ->
     API.getCurrentUser()
 
   App.reqres.setHandler 'user:entities', ->
     API.getUsers()
+
+  App.reqres.setHandler 'user:entity', (id) ->
+    API.getUser id
 
