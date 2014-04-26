@@ -9,5 +9,6 @@ Props::Application.routes.draw do
 
    namespace :api do
      resources :users, only: [:index]
+     resources :props, only: [:index]
    end
 end
