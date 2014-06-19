@@ -1,4 +1,4 @@
-%label person to praise
-%input{ name: 'user_id' }
-%label body
-%input{ name: 'body' }
+%label{ for: 'propser' } person to praise
+%input#propser{ name: 'user_id' }
+%label{ for: 'prop_body' } body
+%textarea#prop_body{ name: 'body' }
