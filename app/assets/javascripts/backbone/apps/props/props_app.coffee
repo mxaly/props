@@ -1,11 +1,15 @@
 @Props.module 'PropsApp', (PropsApp, App, Backbone, Marionette, $, _) ->
   class PropsApp.Router extends Marionette.AppRouter
     appRoutes:
-      'props' : 'list'
+      'props' : 'index'
 
   API =
     list: (options) ->
       new PropsApp.List.Controller options
+
+    index: ->
+      new PropsApp.List.Controller
+        show_header: true
 
   App.addInitializer ->
     new PropsApp.Router
