@@ -2,6 +2,7 @@
 #= require jquery_ujs
 #= require js_stack/base
 
+#= require_tree ./libs
 #= require_tree ./config
 
 #= require backbone/app
