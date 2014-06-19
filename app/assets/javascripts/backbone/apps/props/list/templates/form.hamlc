@@ -1,0 +1,4 @@
+%label person to praise
+%input{ name: 'user_id' }
+%label body
+%input{ name: 'body' }

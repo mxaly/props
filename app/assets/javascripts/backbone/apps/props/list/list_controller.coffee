@@ -29,7 +29,22 @@
         region: @layout.props_region
 
     getHeaderView: ->
-      new List.Header
+      view = new List.Header
+
+      @listenTo view, 'show', ->
+        @formRegion view.form_region
+
+      view
+
+    getFormView: ->
+      new List.Form
+        model: new Backbone.Model
+
+    formRegion: (region) ->
+      view = @getFormView()
+      form_view = App.request 'form:component', view
+      @show form_view,
+        region: region
 
     headerRegion: ->
       view = @getHeaderView()
