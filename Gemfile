@@ -17,6 +17,7 @@ gem 'gon'
 gem 'js_stack'
 gem 'active_model_serializers'
 gem 'searchlight'
+gem 'decent_exposure'
 
 group :development do
   gem 'better_errors'
