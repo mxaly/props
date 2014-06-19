@@ -37,8 +37,9 @@
       view
 
     getFormView: ->
+      prop = App.request 'new:prop:entity'
       new List.Form
-        model: new Backbone.Model
+        model: prop
 
     formRegion: (region) ->
       view = @getFormView()
