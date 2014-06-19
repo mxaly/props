@@ -1,0 +1,9 @@
+#form-content-region
+- if @footer?
+  %footer.form-footer
+    - if @buttons?
+      %ul
+        - for button in @buttons
+          %li.inline-block
+            %button{ class: button.className, data: { form_button: button.type }, type: button.buttonType }= button.text
+
