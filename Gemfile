@@ -34,6 +34,7 @@ group :development do
   gem 'ffaker'
   gem 'spring'
   gem 'bullet'
+  gem 'spring-commands-rspec'
 end
 
 group :development, :test do
