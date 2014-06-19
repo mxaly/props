@@ -1,6 +1,9 @@
 class Api::PropsController < AuthenticatedController
+  expose(:props_repository) { PropsRepository.new }
+
   def index
-    prop_search = PropSearch.new search_params
+    prop_search = props_repository.search search_params
+
     render json: prop_search.results
   end
 
