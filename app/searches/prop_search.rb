@@ -1,5 +1,5 @@
 class PropSearch < Searchlight::Search
-  search_on Prop.includes(:user, :propser)
+  search_on Prop.all.includes(:user, :propser)
 
   searches :user_id, :propser_id
 

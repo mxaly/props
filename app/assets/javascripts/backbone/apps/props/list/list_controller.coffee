@@ -8,6 +8,9 @@
 
       @layout = @getLayoutView()
 
+      @listenTo App.vent, 'prop:created', (prop) ->
+        props.add prop
+
       @listenTo @layout, 'show', ->
         @headerRegion() if show_header
         @propsRegion props
@@ -34,10 +37,17 @@
       @listenTo view, 'show', ->
         @formRegion view.form_region
 
+      @listenTo App.vent, 'prop:created', (prop) ->
+        @formRegion view.form_region
+
       view
 
     getFormView: ->
       prop = App.request 'new:prop:entity'
+
+      @listenTo prop, 'created', (model) ->
+        App.vent.trigger 'prop:created', model
+
       new List.Form
         model: prop
 

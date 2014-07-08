@@ -1,6 +1,6 @@
 class PropsRepository
   def all
-    Prop.all
+    Prop.includes(:user, :propser)
   end
 
   def add(attributes)
