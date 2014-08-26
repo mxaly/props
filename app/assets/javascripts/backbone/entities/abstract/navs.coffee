@@ -9,6 +9,7 @@
       new Entities.NavsCollection [
         { name: 'Users',  url: '#users' }
         { name: 'Props',  url: '#props' }
+        { name: 'Sign out',  url: '/signout' }
       ]
 
   App.reqres.setHandler 'nav:header:entities', ->
