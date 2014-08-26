@@ -1,6 +1,10 @@
 #= require jquery
 #= require jquery_ujs
-#= require js_stack/base
+#= require js_stack/base/underscore
+#= require js_stack/base/hamlcoffee
+#= require js_stack/base/backbone
+#= require js_stack/base/marionette/1.8.8
+#= require js_stack/base/jsroutes
 
 #= require_tree ./libs
 #= require_tree ./config
