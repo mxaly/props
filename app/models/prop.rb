@@ -2,7 +2,7 @@ class Prop < ActiveRecord::Base
   belongs_to :user
   belongs_to :propser, class_name: 'User'
 
-  validates :user, :propser, :body, presence: true
+  validates :user_id, :propser, :body, presence: true
   validate :can_prop, on: :create
 
   private

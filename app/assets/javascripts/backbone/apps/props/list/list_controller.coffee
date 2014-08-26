@@ -54,7 +54,6 @@
         users: users
 
     formRegion: (region, users) ->
-
       view = @getFormView users
       form_view = App.request 'form:component', view
 

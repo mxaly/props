@@ -12,6 +12,7 @@
 
   class List.Form extends App.Views.ItemView
     template: 'props/list/templates/form'
+
     ui:
       select: 'select'
 
@@ -27,6 +28,8 @@
       @ui.select.select2
         placeholder: 'Select user'
         allowClear: true
+        dropdownAutoWidth : true
+        width: 'resolve'
 
   class List.Header extends App.Views.Layout
     template: 'props/list/templates/header'

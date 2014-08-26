@@ -1,4 +1,9 @@
-%label{ for: 'propser' } person to praise
-%select#propser{ name: 'user_id' }
-%label{ for: 'prop_body' } body
-%textarea#prop_body{ name: 'body' }
+%form{ role: 'form' }
+  .form-group
+    %label{ for: 'propser' } person to praise
+    .form-control
+      %select#propser{ name: 'user_id' }
+        %option
+  .form-group
+    %label{ for: 'prop_body' } body
+    %textarea#prop_body.form-control{ name: 'body', rows: 2 }

@@ -56,3 +56,11 @@ section {
   text-align: center;
   background: transparent image-url('loader.gif') 50% 50% no-repeat;
 }
+
+ul.undecorated {
+  padding: 0;
+  list-style-type: none;
+  li {
+    display: inline-block;
+  }
+}
