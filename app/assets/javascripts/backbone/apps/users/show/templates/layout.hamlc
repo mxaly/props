@@ -7,7 +7,7 @@
   %li
     email: #{@email}
   %li
-    props ocunt: #{@props_count}
+    props count: #{@props_count}
 
 %h3 Received props:
 .received-props-region
