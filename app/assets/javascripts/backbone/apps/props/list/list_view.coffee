@@ -13,6 +13,11 @@
   class List.Form extends App.Views.ItemView
     template: 'props/list/templates/form'
 
+    form:
+      buttons:
+        primary: 'Prop!'
+        cancel: false
+
     ui:
       select: 'select'
 
