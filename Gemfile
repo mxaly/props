@@ -18,7 +18,6 @@ gem 'js_stack'
 gem 'active_model_serializers'
 gem 'searchlight'
 gem 'decent_exposure'
-gem 'rails-assets-select2'
 
 group :development do
   gem 'better_errors'

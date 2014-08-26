@@ -1,7 +1,6 @@
 #= require jquery
 #= require jquery_ujs
 #= require js_stack/base
-#= require select2
 
 #= require_tree ./libs
 #= require_tree ./config
