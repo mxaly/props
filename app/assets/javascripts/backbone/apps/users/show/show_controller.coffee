@@ -3,9 +3,7 @@
   class Show.Controller extends App.Controllers.Application
 
     initialize: (options) ->
-      { user } = options
-
-      user ||= App.request 'user:entity', options.id
+      user = App.request 'user:entity', options.id
 
       @layout = @getLayoutView user
 
