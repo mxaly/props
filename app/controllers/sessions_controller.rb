@@ -6,11 +6,11 @@ class SessionsController < ApplicationController
 
   def create
     auth = request.env["omniauth.auth"]
+    unless valid_email? auth.info.email
+      return failure('Your email is invalid!')
+    end
     user = User.where(provider: auth['provider'],
                       uid: auth['uid'].to_s).first || User.create_with_omniauth(auth)
-    # Reset the session after successful login, per
-    # 2.8 Session Fixation – Countermeasures:
-    # http://guides.rubyonrails.org/security.html#session-fixation-countermeasures
     reset_session
     session[:user_id] = user.id
     if user.email.blank?
@@ -26,8 +26,16 @@ class SessionsController < ApplicationController
     redirect_to root_url, notice: 'Signed out!'
   end
 
-  def failure
-    redirect_to root_url, alert: "Authentication error: #{params[:message].humanize}"
+  def failure(message = nil)
+    message ||= params[:message].humanize
+    redirect_to root_url, alert: "Authentication error: #{message}", status: :unauthorized
   end
 
+  private
+
+  def valid_email?(email)
+    match = email.match(/.*\@(?<domain>.*\z)/)
+    domain = match.present? ? match[:domain] : nil
+    Rails.application.secrets.allowed_email_domains.include?(domain)
+  end
 end
