@@ -32,17 +32,18 @@
         region: @layout.props_region
 
     getHeaderView: ->
+      users = App.request 'user:entities'
       view = new List.Header
 
       @listenTo view, 'show', ->
-        @formRegion view.form_region
+        @formRegion view.form_region, users
 
       @listenTo App.vent, 'prop:created', (prop) ->
-        @formRegion view.form_region
+        @formRegion view.form_region, users
 
       view
 
-    getFormView: ->
+    getFormView: (users) ->
       prop = App.request 'new:prop:entity'
 
       @listenTo prop, 'created', (model) ->
@@ -50,12 +51,17 @@
 
       new List.Form
         model: prop
+        users: users
 
-    formRegion: (region) ->
-      view = @getFormView()
+    formRegion: (region, users) ->
+
+      view = @getFormView users
       form_view = App.request 'form:component', view
+
       @show form_view,
         region: region
+        loading:
+          entities: users
 
     headerRegion: ->
       view = @getHeaderView()

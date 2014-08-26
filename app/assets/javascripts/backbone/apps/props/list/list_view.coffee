@@ -12,6 +12,21 @@
 
   class List.Form extends App.Views.ItemView
     template: 'props/list/templates/form'
+    ui:
+      select: 'select'
+
+    initialize: (options) ->
+      @users ||= options.users
+
+    onShow: ->
+      @renderSelectItems @users
+
+    renderSelectItems: (users) ->
+      users.each (user) =>
+        @ui.select.append "<option value='#{user.get('id')}'>#{user.get('name')}</option>"
+      @ui.select.select2
+        placeholder: 'Select user'
+        allowClear: true
 
   class List.Header extends App.Views.Layout
     template: 'props/list/templates/header'
@@ -22,4 +37,3 @@
     template: 'props/list/templates/props'
     itemView: List.Prop
     itemViewContainer: 'ul'
-
