@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+source 'https://rails-assets.org'
 
 gem 'rails', '4.1.5'
 gem 'sass-rails', '~> 4.0.3'
@@ -17,6 +18,7 @@ gem 'js_stack'
 gem 'active_model_serializers'
 gem 'searchlight'
 gem 'decent_exposure'
+gem 'rails-assets-select2'
 
 group :development do
   gem 'better_errors'
