@@ -2,6 +2,7 @@
   class PropsApp.Router extends Marionette.AppRouter
     appRoutes:
       'props' : 'index'
+      '*actions' : 'index'
 
   API =
     list: (options) ->
@@ -19,4 +20,3 @@
     API.list
       props: props
       region: region
-
