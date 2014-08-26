@@ -8,6 +8,6 @@ class Prop < ActiveRecord::Base
   private
 
   def can_prop
-    self.errors.add(:base, "You can't give a prop to yourself... It's not how the world works:)") if user.present? && (propser == user)
+    self.errors.add(:user_id, "You can't give a prop to yourself... It's not how the world works:)") if user.present? && (propser == user)
   end
 end
