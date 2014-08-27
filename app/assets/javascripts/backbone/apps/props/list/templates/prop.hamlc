@@ -1,1 +1,1 @@
-#{@propser.name} gave a prop to #{@user.name} saying #{@body}
+#{@propser?.name} gave a prop to #{@user?.name} saying #{@body}
