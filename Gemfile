@@ -1,27 +1,31 @@
 source 'https://rubygems.org'
 source 'https://rails-assets.org'
 
+ruby '2.1.2'
 gem 'rails', '4.1.5'
-gem 'sass-rails', '~> 4.0.3'
-gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.0.0'
-gem 'jquery-rails'
+
+gem 'active_model_serializers'
 gem 'bootstrap-sass'
+gem 'coffee-rails', '~> 4.0.0'
+gem 'decent_exposure'
+gem 'gon'
 gem 'haml-rails'
+gem 'jquery-rails'
+gem 'js_stack'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem 'pg'
+gem 'sass-rails', '~> 4.0.3'
+gem 'searchlight'
 gem 'sendgrid'
 gem 'thin'
-gem 'gon'
-gem 'js_stack'
-gem 'active_model_serializers'
-gem 'searchlight'
-gem 'decent_exposure'
+gem 'uglifier', '>= 1.3.0'
 
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', platforms: [:mri_19, :mri_20, :mri_21, :rbx]
+  gem 'bullet'
+  gem 'ffaker'
   gem 'foreman'
   gem 'guard-bundler'
   gem 'guard-rails'
@@ -33,18 +37,16 @@ group :development do
   gem 'rb-fchange', require: false
   gem 'rb-fsevent', require: false
   gem 'rb-inotify', require: false
-  gem 'ffaker'
   gem 'spring'
-  gem 'bullet'
   gem 'spring-commands-rspec'
 end
 
 group :development, :test do
+  gem 'dotenv-rails'
   gem 'factory_girl_rails'
   gem 'pry-rails'
   gem 'pry-rescue'
   gem 'rspec-rails'
-  gem 'dotenv-rails'
 end
 
 group :test do
