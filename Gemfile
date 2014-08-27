@@ -28,6 +28,7 @@ group :development do
   gem 'guard-rspec'
   gem 'html2haml'
   gem 'quiet_assets'
+  gem 'rack-mini-profiler'
   gem 'rails_layout'
   gem 'rb-fchange', require: false
   gem 'rb-fsevent', require: false
