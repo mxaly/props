@@ -14,6 +14,7 @@
   class List.Navs extends App.Views.CollectionView
     itemView: List.Nav
     tagName: 'ul'
+    className: 'nav navbar-nav'
 
     onRender: ->
       @$('li').after(' ') # otherwise lis are treated as one word
