@@ -1,1 +1,8 @@
-#{@propser?.name} gave a prop to #{@user?.name} saying #{@body}
+%h4.list-group-item-heading
+  #{@propser?.name}
+  = '->'
+  #{@user?.name}
+  %span.label.label-info
+    #{@created_at}
+%p.list-group-item-text
+  #{@body}

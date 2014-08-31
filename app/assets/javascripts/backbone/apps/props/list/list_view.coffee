@@ -8,7 +8,8 @@
 
   class List.Prop extends App.Views.ItemView
     template: 'props/list/templates/prop'
-    tagName: 'li'
+    tagName: 'a'
+    className: 'list-group-item'
 
   class List.Form extends App.Views.ItemView
     template: 'props/list/templates/form'
@@ -40,3 +41,4 @@
     template: 'props/list/templates/props'
     itemView: List.Prop
     itemViewContainer: 'ul'
+    className: 'list-group'
