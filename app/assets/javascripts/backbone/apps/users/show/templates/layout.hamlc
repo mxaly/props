@@ -1,13 +1,23 @@
 %h2
   Displaying
   %strong #{@name}
-  profile
+  profile:
 
-%ul
-  %li
-    email: #{@email}
-  %li
-    props count: #{@props_count}
+.well.well-sm
+  .row
+    .col-sm-6.col-md-8
+      %h4
+        #{@name}
+      %p
+        %i.glyphicon.glyphicon-thumbs-up
+        Props received:
+        %span.label.label-success
+          #{@props_count}
+      %p
+        %i.glyphicon.glyphicon-gift
+        Props given:
+        %span.label.label-info
+          #{@props_count}
 
 %h3 Received props:
 .received-props-region
