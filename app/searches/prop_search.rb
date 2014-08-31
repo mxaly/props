@@ -1,5 +1,5 @@
 class PropSearch < Searchlight::Search
-  search_on Prop.includes(:user, :propser).order('props.created_at DESC')
+  search_on -> { Prop.with_includes.ordered }
 
   searches :user_id, :propser_id
 

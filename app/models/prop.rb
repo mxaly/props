@@ -5,6 +5,9 @@ class Prop < ActiveRecord::Base
   validates :user_id, :propser, :body, presence: true
   validate :can_prop, on: :create
 
+  scope :with_includes, -> { includes(:user, :propser) }
+  scope :ordered, -> { order('props.created_at DESC') }
+
   private
 
   def can_prop
