@@ -33,15 +33,15 @@
         ## ================================================================ ##
         ## If the region we are trying to insert is not the loadingView then
         ## we know the user has navigated to a different page while the loading
-        ## view was still open. In that case, we know to manually close the original
-        ## view so its controller is also closed.  We also prevent showing the real
+        ## view was still open. In that case, we know to manually destroy the original
+        ## view so its controller is also destroy.  We also prevent showing the real
         ## view (which would snap the user back to the old view unexpectedly)
         ## ================================================================ ##
         switch config.loadingType
           when 'opacity'
             @region.currentView.$el.removeAttr 'style'
           when 'spinner'
-            return realView.close() if @region.currentView isnt loadingView
+            return realView.destroy() if @region.currentView isnt loadingView
 
         ## show the real view unless we've set debug in the loading options
         @show realView unless config.debug

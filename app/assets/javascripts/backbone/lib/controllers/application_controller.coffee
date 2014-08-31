@@ -8,7 +8,7 @@
       @_instance_id = _.uniqueId("controller")
       App.execute "register:instance", @, @_instance_id
 
-    close: ->
+    destroy: ->
       App.execute "unregister:instance", @, @_instance_id
       super
 
@@ -33,11 +33,11 @@
       ## controller (whether its a layout or another view type).  So if this
       ## *is* a layout, when we show other regions inside of that layout, we
       ## check for the existance of a mainView first, so our controller is only
-      ## closed down when the original mainView is closed.
+      ## destroy down when the original mainView is destroy.
 
       return if @_mainView
       @_mainView = view
-      @listenTo view, "close", @close
+      @listenTo view, "destroy", @destroy
 
     _manageView: (view, options) ->
       if options.loading

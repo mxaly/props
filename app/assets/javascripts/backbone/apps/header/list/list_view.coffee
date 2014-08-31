@@ -12,7 +12,7 @@
     tagName: 'li'
 
   class List.Navs extends App.Views.CollectionView
-    itemView: List.Nav
+    childView: List.Nav
     tagName: 'ul'
     className: 'nav navbar-nav'
 

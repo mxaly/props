@@ -8,6 +8,6 @@
 
   class List.Users extends App.Views.CompositeView
     template: 'users/list/templates/users'
-    itemView: List.User
-    itemViewContainer: 'ul'
+    childView: List.User
+    childViewContainer: 'ul'
 

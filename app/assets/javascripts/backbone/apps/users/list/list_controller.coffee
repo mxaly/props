@@ -15,7 +15,7 @@
       view = new List.Users
         collection: users
 
-      @listenTo view, 'itemview:user:clicked', (_iv, args) ->
+      @listenTo view, 'childview:user:clicked', (_iv, args) ->
         { model } = args
         App.vent.trigger 'user:clicked', model
 

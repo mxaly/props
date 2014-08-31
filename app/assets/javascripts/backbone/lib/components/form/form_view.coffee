@@ -64,5 +64,5 @@
     syncStop: (model) ->
       @addOpacityWrapper(false) if @config.syncing
 
-    onClose: ->
+    onDestroy: ->
       @addOpacityWrapper(false) if @config.syncing
