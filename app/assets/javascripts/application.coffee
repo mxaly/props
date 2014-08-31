@@ -5,6 +5,7 @@
 #= require js_stack/base/backbone
 #= require js_stack/base/marionette/1.8.8
 #= require js_stack/base/jsroutes
+#= require bootstrap
 
 #= require_tree ./libs
 #= require_tree ./config
