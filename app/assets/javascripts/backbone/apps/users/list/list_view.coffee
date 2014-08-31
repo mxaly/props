@@ -2,12 +2,11 @@
 
   class List.User extends App.Views.ItemView
     template: 'users/list/templates/user'
-    tagName: 'li'
     triggers:
       'click a' : 'user:clicked'
+    className: 'col-xs-3 col-md-2'
 
   class List.Users extends App.Views.CompositeView
     template: 'users/list/templates/users'
     childView: List.User
-    childViewContainer: 'ul'
-
+    childViewContainer: '.users'

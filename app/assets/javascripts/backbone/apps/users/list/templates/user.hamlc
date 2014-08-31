@@ -1,1 +1,4 @@
-%a{ href: "#users/#{@id}" }= @name
+%a.thumbnail{ href: "#users/#{@id}" }
+  %img{ src: 'http://placehold.it/100', style: 'width: 100%' }>
+  .caption
+    = @name
