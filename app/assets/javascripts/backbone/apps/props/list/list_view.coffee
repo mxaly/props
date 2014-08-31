@@ -6,11 +6,6 @@
       'props_region' : '.props-region'
       'header_region' : '.header-region'
 
-  class List.Prop extends App.Views.ItemView
-    template: 'props/list/templates/prop'
-    tagName: 'a'
-    className: 'list-group-item'
-
   class List.Form extends App.Views.ItemView
     template: 'props/list/templates/form'
 
@@ -36,6 +31,11 @@
     template: 'props/list/templates/header'
     regions:
       'form_region' : '.form-region'
+
+  class List.Prop extends App.Views.ItemView
+    template: 'props/list/templates/prop'
+    tagName: 'a'
+    className: 'list-group-item'
 
   class List.Props extends App.Views.CompositeView
     template: 'props/list/templates/props'
