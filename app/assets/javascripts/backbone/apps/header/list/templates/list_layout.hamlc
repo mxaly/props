@@ -6,7 +6,7 @@
         %span.icon-bar
         %span.icon-bar
         %span.icon-bar
-      %a.navbar-brand{ href: '#' } Props App
+      %a.navbar-logo{ href: '#' } Props App
     .collapse.navbar-collapse
       .navigation-links
       %ul.nav.navbar-nav.navbar-right
