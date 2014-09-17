@@ -1,11 +1,3 @@
-GIT
-  remote: git://github.com/lubieniebieski/searchlight.git
-  revision: 75a9ebca57e1c9fae55af875f45db16075cc224b
-  branch: search_on_proc
-  specs:
-    searchlight (3.0.0)
-      named (~> 1.0)
-
 GEM
   remote: https://rubygems.org/
   remote: https://rails-assets.org/
@@ -256,6 +248,8 @@ GEM
       sass (~> 3.2)
       sprockets (~> 2.12)
       sprockets-rails (>= 2.0, < 4.0)
+    searchlight (3.1.0)
+      named (~> 1.0)
     sendgrid (1.2.0)
       json
     sexp_processor (4.4.3)
@@ -330,7 +324,7 @@ DEPENDENCIES
   rb-inotify
   rspec-rails
   sass-rails (~> 5.0.0.beta1)
-  searchlight!
+  searchlight
   sendgrid
   spring
   spring-commands-rspec
