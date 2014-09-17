@@ -1,8 +1,11 @@
-.jumbotron
-  %h1 Welcome to Props App!
-  %p
-    If you want to say "thanks" to someone who has helped you recently, you are at the right place.
-  %p
-    Just
-    = link_to 'sign in', signin_path
-    an give a prop!
+.row
+  .col-md-6.col-md-offset-3.col-lg-4.col-lg-offset-4
+    %h2.text-center.login-headline Welcome to Props App!
+    .panel.panel-default
+      .panel-heading
+        %h3.panel-title.text-center
+          If you want to say "thanks" to someone who has helped you recently,
+          you are at the right place.
+      .panel-body
+        = link_to 'Just sign in and give a prop!', signin_path,
+                  class: 'btn btn-primary btn-lg btn-block'

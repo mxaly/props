@@ -10,12 +10,11 @@
     = csrf_meta_tags
   %body
     %header
-      .container
-        #header-region
-          = render 'layouts/navigation'
+      #header-region
+        = render 'layouts/navigation'
     %main
       .container
         #main-region
         = yield
-    %footer
+    %footer.text-center
       (c) lubieniebieski 2014
