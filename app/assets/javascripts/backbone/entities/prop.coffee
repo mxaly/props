@@ -9,6 +9,8 @@
 
   class Entities.Props extends Entities.Collection
     model: Entities.Prop
+    comparator: (model) ->
+      - model.get('id')
     url: ->
       Routes.api_props_path()
 
