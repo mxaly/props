@@ -37,8 +37,12 @@
     tagName: 'a'
     className: 'list-group-item'
 
+  class List.EmptyView extends App.Views.ItemView
+    template: 'props/list/templates/empty'
+
   class List.Props extends App.Views.CompositeView
     template: 'props/list/templates/props'
     childView: List.Prop
     childViewContainer: 'ul'
     className: 'list-group'
+    emptyView: List.EmptyView
