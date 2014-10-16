@@ -4,6 +4,9 @@
       user: {}
       propser: {}
       body: ''
+      props_count:
+        received: 0
+        given: 0
     urlRoot: ->
       Routes.api_props_path()
 
