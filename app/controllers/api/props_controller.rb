@@ -8,11 +8,11 @@ class Api::PropsController < AuthenticatedController
   end
 
   def create
-    prop = props_repository.add prop_attributtes
-    if prop.persisted?
-      render json: prop
+    create_prop = Props::Create.new(props_repository, prop_attributtes).call
+    if create_prop.success?
+      render json: create_prop.data
     else
-      render json: { errors: prop.errors }, status: :unprocessable_entity
+      render json: { errors: create_prop.errors }, status: :unprocessable_entity
     end
   end
 

@@ -47,6 +47,7 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.3.6)
     arel (6.0.0.beta1)
+    attr_extras (3.1.0)
     better_errors (1.1.0)
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
@@ -318,6 +319,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_model_serializers!
+  attr_extras
   better_errors
   binding_of_caller
   bullet
