@@ -40,7 +40,6 @@
       _.extend super,
         created_at: moment(@model.get('created_at')).fromNow()
 
-
   class List.EmptyView extends App.Views.ItemView
     template: 'props/list/templates/empty'
 
