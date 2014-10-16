@@ -73,7 +73,7 @@ GEM
     coffee-script (2.3.0)
       coffee-script-source
       execjs
-    coffee-script-source (1.7.1)
+    coffee-script-source (1.8.0)
     daemons (1.1.9)
     database_cleaner (1.0.1)
     debug_inspector (0.0.2)
@@ -87,7 +87,7 @@ GEM
       mail (~> 2.2)
     erubis (2.7.0)
     eventmachine (1.0.3)
-    execjs (2.2.1)
+    execjs (2.2.2)
     factory_girl (4.4.0)
       activesupport (>= 3.0.0)
     factory_girl_rails (4.4.1)
@@ -150,7 +150,7 @@ GEM
     js-routes (0.9.9)
       railties (>= 3.2)
       sprockets-rails
-    js_stack (1.0.0)
+    js_stack (1.2.1)
       haml_coffee_assets (~> 1.16)
       js-routes (~> 0.9.6)
       momentjs-rails (~> 2.6)
@@ -173,7 +173,7 @@ GEM
     mime-types (2.4.2)
     mini_portile (0.6.0)
     minitest (5.4.2)
-    momentjs-rails (2.8.1)
+    momentjs-rails (2.8.3)
       railties (>= 3.1)
     multi_json (1.10.1)
     multi_xml (0.5.5)
