@@ -19,6 +19,10 @@ module Props
     end
 
     def send_notification(prop)
+      notification = NewPropNotification.new prop.user,
+                                              prop.propser,
+                                              prop.body
+      Notifier.new(notification.body).call
     end
   end
 end
