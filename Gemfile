@@ -4,7 +4,7 @@ source 'https://rails-assets.org'
 ruby '2.1.3'
 gem 'rails', '4.2.0.beta2'
 
-gem 'active_model_serializers'
+gem 'active_model_serializers', github: 'rails-api/active_model_serializers', branch: '0-9-stable'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'decent_exposure'
 gem 'gon'

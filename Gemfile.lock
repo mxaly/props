@@ -1,3 +1,11 @@
+GIT
+  remote: git://github.com/rails-api/active_model_serializers.git
+  revision: 89f87bf855d5327b1d64715daba8109a7af979d4
+  branch: 0-9-stable
+  specs:
+    active_model_serializers (0.9.0)
+      activemodel (>= 3.2)
+
 GEM
   remote: https://rubygems.org/
   remote: https://rails-assets.org/
@@ -21,8 +29,6 @@ GEM
       erubis (~> 2.7.0)
       rails-dom-testing (~> 1.0, >= 1.0.3)
       rails-html-sanitizer (~> 1.0, >= 1.0.1)
-    active_model_serializers (0.8.1)
-      activemodel (>= 3.0)
     activejob (4.2.0.beta2)
       activesupport (= 4.2.0.beta2)
       globalid (>= 0.3.0)
@@ -308,7 +314,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  active_model_serializers
+  active_model_serializers!
   better_errors
   binding_of_caller
   bullet
