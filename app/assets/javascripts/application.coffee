@@ -5,6 +5,7 @@
 #= require js_stack/base/backbone
 #= require js_stack/base/marionette
 #= require js_stack/base/jsroutes
+#= require js_stack/plugins/moment
 #= require bootstrap
 
 #= require_tree ./libs
