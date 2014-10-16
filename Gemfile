@@ -8,6 +8,7 @@ gem 'active_model_serializers', github: 'rails-api/active_model_serializers', br
 gem 'coffee-rails', '~> 4.0.0'
 gem 'decent_exposure'
 gem 'gon'
+gem 'gravatar-ultimate'
 gem 'haml-rails'
 gem 'jquery-rails'
 gem 'js_stack'

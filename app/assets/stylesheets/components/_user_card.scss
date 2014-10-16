@@ -1,0 +1,9 @@
+.user-card {
+  @media (max-width: $screen-md-min) {
+    height: 140px;
+  }
+
+  @media (min-width: $screen-md-min) {
+    height: 190px;
+  }
+}

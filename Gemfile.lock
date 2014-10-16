@@ -106,6 +106,9 @@ GEM
     gon (5.0.4)
       actionpack (>= 2.3.0)
       json
+    gravatar-ultimate (2.0.0)
+      activesupport (>= 2.3.14)
+      rack
     guard (2.6.0)
       formatador (>= 0.2.4)
       listen (~> 2.7)
@@ -327,6 +330,7 @@ DEPENDENCIES
   ffaker
   foreman
   gon
+  gravatar-ultimate
   guard-bundler
   guard-rails
   guard-rspec
