@@ -286,6 +286,7 @@ GEM
     sendgrid (1.2.0)
       json
     sexp_processor (4.4.3)
+    slack-notifier (0.6.0)
     slop (3.5.0)
     spring (1.1.2)
     spring-commands-rspec (1.0.2)
@@ -358,6 +359,7 @@ DEPENDENCIES
   sass-rails (~> 5.0.0.beta1)
   searchlight
   sendgrid
+  slack-notifier
   spring
   spring-commands-rspec
   thin

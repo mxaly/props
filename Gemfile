@@ -20,6 +20,7 @@ gem 'pg'
 gem 'sass-rails', '~> 5.0.0.beta1'
 gem 'searchlight'
 gem 'sendgrid'
+gem 'slack-notifier'
 gem 'thin'
 gem 'uglifier', '>= 1.3.0'
 
