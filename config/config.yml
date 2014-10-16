@@ -1,0 +1,23 @@
+defaults: &defaults
+  allowed_email_domains:
+    - gmail.com
+  domain_name: <%= ENV["DOMAIN_NAME"] %>
+  email_provider_username: <%= ENV["SENDGRID_USERNAME"] %>
+  email_provider_password: <%= ENV["SENDGRID_PASSWORD"] %>
+  omniauth_provider_key: <%= ENV["OMNIAUTH_PROVIDER_KEY"] %>
+  omniauth_provider_secret: <%= ENV["OMNIAUTH_PROVIDER_SECRET"] %>
+  slack:
+    team: <%= ENV["SLACK_TEAM"] %>
+    token: <%= ENV["SLACK_TOKEN"] %>
+    default_channel: <%= ENV["SLACK_DEFAULT_CHANNEL"] %>
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults
+  allowed_email_domains:
+    - <%= ENV["ALLOWED_EMAIL_DOMAIN"] %>
