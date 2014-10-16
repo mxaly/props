@@ -36,6 +36,6 @@ class SessionsController < ApplicationController
   def valid_email?(email)
     match = email.match(/.*\@(?<domain>.*\z)/)
     domain = match.present? ? match[:domain] : nil
-    Rails.application.secrets.allowed_email_domains.include?(domain)
+    AppConfig.allowed_email_domains.include?(domain)
   end
 end

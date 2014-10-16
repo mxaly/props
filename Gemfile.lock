@@ -158,6 +158,7 @@ GEM
     json (1.8.1)
     jwt (0.1.11)
       multi_json (>= 1.5)
+    konf (0.0.2)
     launchy (2.4.2)
       addressable (~> 2.3)
     listen (2.7.1)
@@ -341,6 +342,7 @@ DEPENDENCIES
   html2haml
   jquery-rails
   js_stack
+  konf
   netguru_theme
   omniauth
   omniauth-google-oauth2
