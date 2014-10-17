@@ -1,6 +1,6 @@
 class Notifier
   class Base
-    pattr_initialize :body, [:options]
+    pattr_initialize :notification, [:options]
 
     def call
       notify

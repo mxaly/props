@@ -22,7 +22,7 @@ module Props
       notification = NewPropNotification.new prop.user,
                                               prop.propser,
                                               prop.body
-      Notifier.new(notification.body).call
+      Notifier.new(notification).call
     end
   end
 end
