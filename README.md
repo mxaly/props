@@ -1,13 +1,12 @@
 # Props
-
-## General informations
-
-This app is called *PROPS*. The idea behind it is to express saying 'thank you!'
-in a geeky way.
-
 ![](http://img.shields.io/codeclimate/coverage/github/lubieniebieski/props.svg?style=flat-square)
 ![](http://img.shields.io/gemnasium/lubieniebieski/props.svg?style=flat-square)
 ![](http://img.shields.io/codeclimate/coverage/github/lubieniebieski/props.svg?style=flat-square)
+
+## General info
+
+This app is called **PROPS**. The idea behind it is to express saying 'thank you!'
+in a geeky way.
 
 ## Technologies
 
@@ -25,11 +24,11 @@ in a geeky way.
 
 ## Tests
 
-We use RSpec 3 for Ruby.
+We use RSpec 3 for testing backend.
 
 ## Common problems/bugs
 
-Nothing yet
+Nothing yet. YAY.
 
 ## Notes
 
