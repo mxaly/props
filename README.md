@@ -1,143 +1,53 @@
-Props
-=========
+# Props
 
-This application was generated with the [rails_apps_composer](https://github.com/RailsApps/rails_apps_composer) gem
-provided by the [RailsApps Project](http://railsapps.github.io/).
+## General informations
 
-Diagnostics
------------
+This app is called *PROPS*. The idea behind it is to express saying 'thank you!'
+in a geeky way.
 
-This application was built with recipes that are NOT known to work together.
+![](http://img.shields.io/codeclimate/coverage/github/lubieniebieski/props.svg?style=flat-square)
+![](http://img.shields.io/gemnasium/lubieniebieski/props.svg?style=flat-square)
+![](http://img.shields.io/codeclimate/coverage/github/lubieniebieski/props.svg?style=flat-square)
 
-This application was built with preferences that are NOT known to work
-together.
+## Technologies
 
-If the application doesn’t work as expected, please [report an issue](https://github.com/RailsApps/rails_apps_composer/issues)
-and include these diagnostics:
+* Ruby on Rails 4.2
+* Ruby 2.1.3
+* Postgres
 
-We’d also like to know if you’ve found combinations of recipes or
-preferences that do work together.
+## Setup
 
-Recipes:
+> TBD
 
-* apps4
-* controllers
-* core
-* deployment
-* email
-* extras
-* frontend
-* gems
-* git
-* init
-* models
-* prelaunch
-* railsapps
-* readme
-* routes
-* saas
-* setup
-* testing
-* views
+## Development
 
-Preferences:
+> TBD
 
-* git: true
-* apps4: none
-* dev_webserver: thin
-* prod_webserver: thin
-* database: postgresql
-* templates: haml
-* unit_test: rspec
-* integration: none
-* continuous_testing: guard
-* fixtures: factory_girl
-* frontend: bootstrap3
-* email: sendgrid
-* authentication: omniauth
-* omniauth_provider: google_oauth2
-* authorization: none
-* form_builder: none
-* starter_app: home_app
-* rvmrc: false
-* quiet_assets: true
-* local_env_file: foreman
-* better_errors: true
-* pry: true
-* ban_spiders: true
+## Tests
 
-Ruby on Rails
--------------
+We use RSpec 3 for Ruby.
 
-This application requires:
+## Common problems/bugs
 
--   Ruby
--   Rails
+Nothing yet
 
-Learn more about [Installing Rails](http://railsapps.github.io/installing-rails.html).
+## Notes
 
-Database
---------
+Please follow Ruby style guide available [here](https://github.com/bbatsov/ruby-style-guide).
 
-This application uses PostgreSQL with ActiveRecord.
-
-Development
------------
-
--   Template Engine: Haml
--   Testing Framework: RSpec and Factory Girl
--   Front-end Framework: Bootstrap 3.0 (Sass)
--   Form Builder: None
--   Authentication: OmniAuth
--   Authorization: None
--   Admin: None
-
-Email
------
-
-The application is configured to send email using a SendGrid account.
-
-Email delivery is disabled in development.
-
-Getting Started
----------------
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-
-Documentation and Support
--------------------------
-
-This is the only documentation.
-
-#### Issues
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-
-Similar Projects
-----------------
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-
-Contributing
-------------
+## Contributing
 
 If you make improvements to this application, please share with others.
 
--   Fork the project on GitHub.
--   Make your feature addition or bug fix.
--   Commit with Git.
--   Send the author a pull request.
+* Fork the project on GitHub.
+* Make your feature addition or bug fix.
+* Commit with Git.
+* Send the author a pull request.
 
 If you add functionality to this application, create an alternative
 implementation, or build an application that is similar, please contact
 me and I’ll add a note to the README so that others can find your work.
 
-Credits
--------
+## License
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-
-License
--------
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+> TBD
