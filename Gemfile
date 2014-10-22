@@ -25,6 +25,13 @@ gem 'slack-notifier'
 gem 'thin'
 gem 'uglifier', '>= 1.3.0'
 
+# deploy
+gem 'capistrano'
+gem 'rvm1-capistrano3', require: false
+gem 'capistrano-rails'
+gem 'capistrano-bundler'
+gem 'capistrano-passenger'
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', platforms: [:mri_19, :mri_20, :mri_21, :rbx]
