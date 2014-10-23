@@ -1,5 +1,5 @@
 deployment:
   master:
     branch: master
-    heroku:
-      appname: propsapp
+    commands:
+      - bundle exec cap production deploy
