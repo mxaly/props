@@ -1,7 +1,7 @@
 # Props
-![](http://img.shields.io/codeclimate/coverage/github/lubieniebieski/props.svg?style=flat-square)
-![](http://img.shields.io/gemnasium/lubieniebieski/props.svg?style=flat-square)
-![](http://img.shields.io/codeclimate/coverage/github/lubieniebieski/props.svg?style=flat-square)
+![](http://img.shields.io/codeclimate/coverage/github/netguru/props.svg?style=flat-square)
+![](http://img.shields.io/gemnasium/netguru/props.svg?style=flat-square)
+![](http://img.shields.io/codeclimate/coverage/github/netguru/props.svg?style=flat-square)
 
 ## General info
 
