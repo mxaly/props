@@ -17,4 +17,9 @@
         #main-region
         = yield
     %footer.text-center
-      (c) lubieniebieski 2014
+      (c)
+      = link_to 'netguru', 'https://netguru.co'
+      |
+      Thanks to
+      = succeed '!' do
+        = link_to 'everybody involved', 'https://github.com/netguru/props/graphs/contributors'
