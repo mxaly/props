@@ -7,8 +7,8 @@ describe Api::PropsController do
     let(:attrs) do
       { user_id: '1', propser_id: '2' }.as_json
     end
-    let(:props) { [Prop.new(id: 3), Prop.new(id: 4)]}
-    let(:props_search) { double(:props_search, results: props)}
+    let(:props) { [Prop.new(id: 3), Prop.new(id: 4)] }
+    let(:props_search) { double(:props_search, results: props) }
     let(:props_repository) { double(:props_repository, search: props_search) }
 
     before do
@@ -41,6 +41,7 @@ describe Api::PropsController do
       allow(controller).to receive(:props_repository)
         .and_return(props_repository)
       expect(prop).to receive(:persisted?).and_return(true)
+      Slack::Notifier.stub(:new).and_return(double(ping: true))
       post :create, attrs
     end
 
