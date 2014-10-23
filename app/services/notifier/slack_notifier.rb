@@ -3,7 +3,7 @@ class Notifier
     private
 
     def notify
-      channel.ping notification
+      channel.ping notification.to_s
     end
 
     def channel
