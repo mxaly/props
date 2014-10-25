@@ -4,4 +4,4 @@
     %option
 .form-group
   %label{ for: 'prop_body' } body
-  %textarea#prop_body.form-control{ name: 'body', rows: 2 }
+  %textarea#prop_body.form-control{ name: 'body', rows: 2, placeholder: 'What do you want to thank for?' }
