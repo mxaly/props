@@ -26,6 +26,11 @@
     renderSelectItems: (users) ->
       users.each (user) =>
         @ui.select.append "<option value='#{user.get('id')}'>#{user.get('name')}</option>"
+      @ui.select.select2
+        placeholder: 'Select user'
+        allowClear: true
+        dropdownAutoWidth : true
+        width: 'resolve'
 
   class List.Header extends App.Views.Layout
     template: 'props/list/templates/header'
