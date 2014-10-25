@@ -1,4 +1,4 @@
 %a.thumbnail.user-card{ href: "#users/#{@id}" }
-  %img{ src: @avatar_url, style: 'width: 100%' }>
+  %img{ src: @avatar_url }>
   .caption
     = @name
