@@ -6,7 +6,7 @@ gem 'rails', '4.2.0.beta2'
 
 gem 'active_model_serializers', github: 'rails-api/active_model_serializers', branch: '0-9-stable'
 gem 'attr_extras'
-gem 'coffee-rails', '~> 4.0.0'
+gem 'coffee-rails'
 gem 'decent_exposure'
 gem 'gon'
 gem 'gravatar-ultimate'
@@ -25,7 +25,7 @@ gem 'searchlight'
 gem 'sendgrid'
 gem 'slack-notifier'
 gem 'thin'
-gem 'uglifier', '>= 1.3.0'
+gem 'uglifier'
 
 # deploy
 gem 'capistrano'
@@ -64,6 +64,6 @@ end
 
 group :test do
   gem 'codeclimate-test-reporter', require: nil
-  gem 'database_cleaner', '1.0.1'
+  gem 'database_cleaner'
   gem 'email_spec'
 end
