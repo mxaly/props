@@ -10,6 +10,7 @@ defaults: &defaults
     team: <%= ENV["SLACK_TEAM"] %>
     token: <%= ENV["SLACK_TOKEN"] %>
     default_channel: <%= ENV["SLACK_DEFAULT_CHANNEL"] %>
+  rollbar_access_token: <%= ENV['ROLLBAR_ACCESS_TOKEN'] %>
 
 development:
   <<: *defaults
