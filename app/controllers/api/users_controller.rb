@@ -1,10 +1,12 @@
 class Api::UsersController < AuthenticatedController
+  expose(:users_repository) { UsersRepository.new }
+
   def index
-    render json: User.all
+    render json: users_repository.all
   end
 
   def show
-    user = User.find params[:id]
+    user = users_repository.find_by_id(params[:id])
     render json: user, serializer: UserSerializer::Full
   end
 end
