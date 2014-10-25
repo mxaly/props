@@ -5,6 +5,8 @@ All notable changes to this project will be documented in this file.
 ## Added
 * Brand new readme
 * This changelog
+* Filtering users on users page
+* More intuitive selecting users in props form
 
 # 0.6.0 - 2014-10-17
 ## Added

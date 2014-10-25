@@ -10,3 +10,10 @@
     template: 'users/list/templates/users'
     childView: List.User
     childViewContainer: '.users'
+    ui:
+      filter: 'input'
+
+    onRender: ->
+      @ui.filter.focus()
+      @ui.filter.on 'keyup', (event) =>
+        @trigger 'users:filter', event.target.value

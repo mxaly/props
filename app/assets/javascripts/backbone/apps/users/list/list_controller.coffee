@@ -18,5 +18,10 @@
       @listenTo view, 'childview:user:clicked', (_iv, args) ->
         { model } = args
         App.vent.trigger 'user:clicked', model
+      @listenTo view, 'users:filter', (name) =>
+        @allUsers ||= users.clone()
+        filteredUsers = @allUsers.filter (user) =>
+          user.get('name').toLowerCase().match(name.toLowerCase())
+        users.reset(filteredUsers)
 
       view
