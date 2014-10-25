@@ -40,7 +40,7 @@
   class List.Prop extends App.Views.ItemView
     template: 'props/list/templates/prop'
     tagName: 'a'
-    className: 'list-group-item'
+    className: 'list-group-item row'
     serializeData: ->
       _.extend super,
         created_at: moment(@model.get('created_at')).fromNow()
