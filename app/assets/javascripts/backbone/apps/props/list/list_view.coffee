@@ -16,12 +16,21 @@
 
     ui:
       select: 'select'
+      praisedPersonAvatar: '.praised-person-avatar'
 
     initialize: (options) ->
       @users ||= options.users
 
     onShow: ->
       @renderSelectItems @users
+      @ui.select.on 'change', (e) =>
+        selectedUser = @users.get(e.val)
+        avatarUrl = if selectedUser?
+          selectedUser.get('avatar_url')
+        else
+          ''
+        @ui.praisedPersonAvatar.attr('src', avatarUrl)
+
 
     renderSelectItems: (users) ->
       users.each (user) =>
