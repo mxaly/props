@@ -13,7 +13,7 @@
   class Entities.Props extends Entities.Collection
     model: Entities.Prop
     comparator: (model) ->
-      - model.get('id')
+      - moment(model.get('created_at')).format('X')
     url: ->
       Routes.api_props_path()
 
