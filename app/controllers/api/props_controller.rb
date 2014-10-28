@@ -12,7 +12,7 @@ class Api::PropsController < AuthenticatedController
     if create_prop.success?
       render json: create_prop.data
     else
-      render json: { errors: create_prop.errors }, status: :unprocessable_entity
+      render json: { errors: create_prop.errors }, status: :unprocessable_entity, serializer: false
     end
   end
 
