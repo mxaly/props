@@ -3,7 +3,7 @@
   _.extend Marionette.View::,
     addOpacityWrapper: (init = true, options = {}) ->
       _.defaults options,
-        className: 'form-sync-cover'
+        className: 'form-sync-cover loading'
 
       @$el.toggleWrapper options, @cid, init
 
