@@ -48,15 +48,20 @@
         if _.isEmpty(errors) then @removeErrors() else @addErrors errors
 
     removeErrors: ->
-      @$(".form-group").removeClass("has-error")
+      @$('.form-group').removeClass('has-error')
+      @$('.help-block.error').remove()
 
     addErrors: (errors = {}) ->
       for name, array of errors
         @addError name, array[0]
 
     addError: (name, error) ->
-      el = @$("[name='#{name}']:first")
-      el.parents('.form-group').addClass('has-error')
+      $el = @$("[name='#{name}']:first")
+      $parent = $el.parents('.form-group')
+      $parent.addClass('has-error')
+      $sm = $('<span>').addClass('help-block error').text(error)
+      lastSibling = $parent.children(':last')
+      lastSibling.after $sm
 
     syncStart: (model) ->
       @addOpacityWrapper() if @config.syncing
