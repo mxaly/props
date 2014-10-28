@@ -1,12 +1,19 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
-# 0.7.0 - Unreleased
+# 0.7.0 - 2014-10-28
 ## Added
 * Brand new readme
 * This changelog
 * Filtering users on users page
 * More intuitive selecting users in props form
+* Instant redirection to app when user is signed in
+* Ajax loader
+* When form is synced - opacity wrapper is added
+
+## Fixed
+* Errors are displayed on form
+* Proper prop escaping
 
 # 0.6.0 - 2014-10-17
 ## Added
