@@ -1,6 +1,7 @@
 defaults: &defaults
   allowed_email_domains:
     - gmail.com
+  app_domain: 'props.dev'
   domain_name: <%= ENV["DOMAIN_NAME"] %>
   email_provider_username: <%= ENV["SENDGRID_USERNAME"] %>
   email_provider_password: <%= ENV["SENDGRID_PASSWORD"] %>
