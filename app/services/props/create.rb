@@ -15,13 +15,20 @@ module Props
     private
 
     def create_prop(prop_attrs)
+      clean_body = clean_text prop_attrs.fetch(:body)
+      prop_attrs.merge!(body: clean_body)
+
       props_repository.add prop_attrs
+    end
+
+    def clean_text(text)
+      text.strip
     end
 
     def send_notification(prop)
       notification = NewPropNotification.new prop.user,
-                                              prop.propser,
-                                              prop.body
+                                             prop.propser,
+                                             prop.body
       Notifier.new(notification).call
     end
   end
