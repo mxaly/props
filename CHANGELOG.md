@@ -1,6 +1,11 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+# 0.8.0 - Unreleased
+## Changed
+* `slack-notifier` gem was updated and instead of using `team` and `token`
+  variables, we now use `webhook_url`. See more here https://github.com/stevenosloan/slack-notifier/blob/master/docs/upgrade-from-0.6.1.md
+
 # 0.7.0 - 2014-10-28
 ## Added
 * Brand new readme

@@ -8,8 +8,7 @@ defaults: &defaults
   omniauth_provider_key: <%= ENV["OMNIAUTH_PROVIDER_KEY"] %>
   omniauth_provider_secret: <%= ENV["OMNIAUTH_PROVIDER_SECRET"] %>
   slack:
-    team: <%= ENV["SLACK_TEAM"] %>
-    token: <%= ENV["SLACK_TOKEN"] %>
+    webhook_url: <%= ENV['SLACK_WEBHOOK_URL'] %>
     default_channel: <%= ENV["SLACK_DEFAULT_CHANNEL"] %>
   rollbar_access_token: <%= ENV['ROLLBAR_ACCESS_TOKEN'] %>
 
