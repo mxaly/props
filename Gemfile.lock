@@ -95,8 +95,6 @@ GEM
     diff-lcs (1.2.5)
     docile (1.1.5)
     dotenv (0.10.0)
-    dotenv-rails (0.10.0)
-      dotenv (= 0.10.0)
     email_spec (1.6.0)
       launchy (~> 2.1)
       mail (~> 2.2)
@@ -364,7 +362,6 @@ DEPENDENCIES
   coffee-rails
   database_cleaner
   decent_exposure
-  dotenv-rails
   email_spec
   factory_girl_rails
   ffaker

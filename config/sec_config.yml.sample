@@ -1,5 +1,6 @@
-defaults: &defaults
+development:
   allowed_email_domains:
+    - gmail.com
   app_domain: 'props.dev'
   domain_name: 'gapps-domain-name'
   email_provider_password: 'email_provider_password'
@@ -10,12 +11,6 @@ defaults: &defaults
     webhook_url: 'webhook_url'
     default_channel: 'default_channel'
   rollbar_access_token: 'rollbar_token'
-
-development:
-  <<: *defaults
-
-test:
-  <<: *defaults
 
 production:
   <<: *defaults

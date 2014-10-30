@@ -79,3 +79,4 @@ pickle-email-*.html
 .env
 .powenv
 config/config.yml
+config/sec_config.yml
