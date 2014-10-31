@@ -8,6 +8,10 @@ All notable changes to this project will be documented in this file.
 * Configuration is done by overriding `config/sec_config.yml` file.
   `dotenv-rails` isn't used anymore
 * Upgrade to RSpec 3
+* Rails updated to 4.2.0.beta4
+
+## Fixed
+* Few missing bootstrap classes were added to keep layout compatible with grid
 
 # 0.7.0 - 2014-10-28
 ## Added
