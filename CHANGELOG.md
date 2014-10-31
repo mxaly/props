@@ -7,6 +7,7 @@ All notable changes to this project will be documented in this file.
   variables, we now use `webhook_url`. See more here https://github.com/stevenosloan/slack-notifier/blob/master/docs/upgrade-from-0.6.1.md
 * Configuration is done by overriding `config/sec_config.yml` file.
   `dotenv-rails` isn't used anymore
+* Upgrade to RSpec 3
 
 # 0.7.0 - 2014-10-28
 ## Added

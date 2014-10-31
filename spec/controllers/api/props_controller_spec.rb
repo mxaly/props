@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe Api::PropsController do
   let(:user) { double(:user, id: 5) }
@@ -41,7 +41,7 @@ describe Api::PropsController do
       allow(controller).to receive(:props_repository)
         .and_return(props_repository)
       expect(prop).to receive(:persisted?).and_return(true)
-      Slack::Notifier.stub(:new).and_return(double(ping: true))
+      allow(Slack::Notifier).to receive(:new).and_return(double(ping: true))
       post :create, attrs
     end
 
