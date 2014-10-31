@@ -6,4 +6,5 @@
       tabindex: 1,
       type: 'text',
       placeholder: 'Filter users by name' }
-.users
+.row
+  .users

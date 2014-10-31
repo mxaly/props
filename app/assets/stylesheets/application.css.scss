@@ -6,4 +6,11 @@
 @import 'components/user_card';
 @import 'components/loading';
 @import 'controllers/login';
-@import 'select2'
+@import 'select2';
+
+@media (min-width: $screen-md-max) {
+  .container {
+    min-width: $screen-md-max;
+    max-width: $screen-lg-min;
+  }
+}

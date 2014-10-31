@@ -5,6 +5,7 @@
     regions:
       'props_region' : '.props-region'
       'header_region' : '.header-region'
+    className: 'col-xs-12'
 
   class List.Form extends App.Views.ItemView
     template: 'props/list/templates/form'
@@ -48,8 +49,8 @@
 
   class List.Prop extends App.Views.ItemView
     template: 'props/list/templates/prop'
-    tagName: 'a'
-    className: 'list-group-item row'
+    tagName: 'li'
+    className: 'list-group-item'
     serializeData: ->
       _.extend super,
         created_at: moment(@model.get('created_at')).fromNow()
