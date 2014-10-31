@@ -2,6 +2,8 @@
   %h1 Users
   %form
     %input.filter-users{
+      autofocus: true,
+      tabindex: 1,
       type: 'text',
       placeholder: 'Filter users by name' }
 .users

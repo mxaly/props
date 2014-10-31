@@ -13,7 +13,7 @@
     ui:
       filter: 'input'
 
-    onRender: ->
+    onShow: ->
       @ui.filter.focus()
       @ui.filter.on 'keyup', (event) =>
         @trigger 'users:filter', event.target.value
