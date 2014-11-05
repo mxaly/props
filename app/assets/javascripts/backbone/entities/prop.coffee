@@ -10,6 +10,10 @@
     urlRoot: ->
       Routes.api_props_path()
 
+    upvote: ->
+      $.post Routes.api_prop_upvotes_path(@get('id')), (data) =>
+        @set data
+
   class Entities.Props extends Entities.Collection
     model: Entities.Prop
     comparator: (model) ->

@@ -28,6 +28,9 @@
 
     propsRegion: (props) ->
       view = @getPropsView props
+      @listenTo view, 'childview:prop:upvote:clicked', (iv, args) ->
+        prop = args.model
+        prop.upvote()
       @show view,
         region: @layout.props_region
 

@@ -51,6 +51,14 @@
     template: 'props/list/templates/prop'
     tagName: 'li'
     className: 'list-group-item'
+    triggers:
+      'click [js-upvote]': 'prop:upvote:clicked'
+    modelEvents:
+      'change' : 'render'
+
+    onUpvote: (e) ->
+      console.log 'kliknal'
+
     serializeData: ->
       _.extend super,
         created_at: moment(@model.get('created_at')).fromNow()
