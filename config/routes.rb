@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
   namespace :api do
     resources :users, only: [:index, :show]
-    resources :props, only: [:index, :create]
+    resources :props, only: [:index, :create] do
+      resources :upvotes, only: [:create]
+    end
   end
 end
