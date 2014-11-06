@@ -1,7 +1,12 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
-# 0.8.0 - Unreleased
+# 0.8.0 - 2014-11-06
+## Added
+* Ability to upvote props
+  * thanks @sufleR for checking into SQL query!
+* Ability to see prop rating
+
 ## Changed
 * `slack-notifier` gem was updated and instead of using `team` and `token`
   variables, we now use `webhook_url`. See more here https://github.com/stevenosloan/slack-notifier/blob/master/docs/upgrade-from-0.6.1.md
@@ -9,9 +14,12 @@ All notable changes to this project will be documented in this file.
   `dotenv-rails` isn't used anymore
 * Upgrade to RSpec 3
 * Rails updated to 4.2.0.beta4
+* UI changes
+  * thanks @dawidw!
 
 ## Fixed
 * Few missing bootstrap classes were added to keep layout compatible with grid
+  * thanks @Luk4z!
 
 # 0.7.0 - 2014-10-28
 ## Added
