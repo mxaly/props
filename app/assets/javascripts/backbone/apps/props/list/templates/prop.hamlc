@@ -7,6 +7,9 @@
       %img{ src: @user?.avatar_url}
   .col-lg-9.col-md-9.col-xs-12.prop-content
     #{@created_at}
+    .clearfix
+    %p.lead.prop-body
+      #{@body}
     .upvote-area.pull-right
       .btn-group
         - if @upvotes_count > 0
@@ -16,6 +19,3 @@
         - if @is_upvote_possible
           %button.btn.btn-success{ 'js-upvote' => true }
             = '+1'
-    .clearfix
-    %p.lead.prop-body
-      #{@body}

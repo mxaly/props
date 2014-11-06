@@ -50,7 +50,7 @@
   class List.Prop extends App.Views.ItemView
     template: 'props/list/templates/prop'
     tagName: 'li'
-    className: 'list-group-item'
+    className: 'list-group-item props-list-item'
     triggers:
       'click [js-upvote]': 'prop:upvote:clicked'
     modelEvents:
