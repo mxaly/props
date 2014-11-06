@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 # 0.8.0 - 2014-11-06
 ## Added
 * Ability to upvote props
-  * thanks @sufleR for checking into SQL query!
+  * thanks [@sufleR](https://github.com/sufleR) for checking into SQL query!
 * Ability to see prop rating
 
 ## Changed
@@ -15,11 +15,11 @@ All notable changes to this project will be documented in this file.
 * Upgrade to RSpec 3
 * Rails updated to 4.2.0.beta4
 * UI changes
-  * thanks @dawidw!
+  * thanks [@dawidw](https://github.com/dawidw)!
 
 ## Fixed
 * Few missing bootstrap classes were added to keep layout compatible with grid
-  * thanks @Luk4z!
+  * thanks [@Luk4z](https://github.com/Luk4z)!
 
 # 0.7.0 - 2014-10-28
 ## Added
