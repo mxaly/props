@@ -3,7 +3,12 @@ module Props
     pattr_initialize [:prop!, :user!, :upvotes_repository!]
 
     def call
-      upvotes_repository.add(prop, user)
+      upvote = upvotes_repository.add(prop, user)
+      if upvote.persisted?
+        Response::Success.new(data: prop.reload)
+      else
+        Response::Error.new(errors: upvote.errors)
+      end
     end
   end
 end
