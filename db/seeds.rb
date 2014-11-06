@@ -23,4 +23,12 @@ user_ids = User.pluck(:id)
                created_at: date,
                updated_at: date)
 end
+
+puts '== Creating upvotes'
+prop_ids = Prop.pluck(:id)
+100.times do
+  user_id = user_ids.sample
+  prop_id = prop_ids.sample
+  Upvote.create(prop_id: prop_id, user_id: user_id)
+end
 puts '== DONE!'
