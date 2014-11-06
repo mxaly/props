@@ -12,7 +12,7 @@ describe Api::PropsController do
     let(:props_repository) { double(:props_repository, search: props_search) }
 
     before do
-      sign_in
+      sign_in(user)
       allow(controller).to receive(:props_repository)
         .and_return(props_repository)
       get :index, attrs
@@ -20,8 +20,9 @@ describe Api::PropsController do
 
     it_behaves_like 'a successful JSON request'
 
-    it 'passes correct attributes to search method' do
-      expect(props_repository).to have_received(:search).with(attrs)
+    it 'passes correct attributes including upvotes status to search method' do
+      expected_attrs = attrs.merge!(show_upvote_status_for_user_id: user.id)
+      expect(props_repository).to have_received(:search).with(expected_attrs)
     end
 
     it 'returns search results' do
