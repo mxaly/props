@@ -2,7 +2,9 @@ class Api::PropsController < AuthenticatedController
   expose(:props_repository) { PropsRepository.new }
 
   def index
-    prop_search = props_repository.search search_params
+    search_attrs = search_params.merge!(
+      show_upvote_status_for_user_id: current_user.id)
+    prop_search = props_repository.search search_attrs
 
     render json: prop_search.results
   end
