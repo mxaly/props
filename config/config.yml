@@ -4,6 +4,7 @@ defaults: &defaults
   domain_name: 'gapps-domain-name'
   email_provider_password: 'email_provider_password'
   email_provider_username: 'email_provider_username'
+  newrelic_license_key: 'newrelic_license_key'
   omniauth_provider_key: 'omniauth-key'
   omniauth_provider_secret: 'omniauth-secret'
   slack:
