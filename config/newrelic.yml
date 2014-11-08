@@ -3,8 +3,8 @@ require 'preinitializer'
 common: &default_settings
   app_name: props
   license_key: AppConfig.newrelic_license_key
-  monitor_mode: true
-  developer_mode: true
+  monitor_mode: false
+  developer_mode: false
   log_level: info
   ssl: false
   apdex_t: 0.5
