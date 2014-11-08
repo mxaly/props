@@ -2,7 +2,7 @@ require 'preinitializer'
 
 common: &default_settings
   app_name: props
-  license_key: AppConfig.newrelic_license_key
+  license_key: <%= AppConfig.newrelic_license_key %>
   monitor_mode: false
   developer_mode: false
   log_level: info
