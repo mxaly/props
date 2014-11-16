@@ -56,9 +56,6 @@
     modelEvents:
       'change' : 'render'
 
-    onUpvote: (e) ->
-      console.log 'kliknal'
-
     serializeData: ->
       _.extend super,
         created_at: moment(@model.get('created_at')).fromNow()
@@ -72,3 +69,13 @@
     childViewContainer: '.props-list'
     className: 'list-group'
     emptyView: List.EmptyView
+
+    events:
+      'click [data-page]' : 'pageSelected'
+
+    pageSelected: (e) ->
+      if $(e.target).data().page == 'next'
+        @collection.getNextPage()
+      else
+        @collection.getPreviousPage()
+
