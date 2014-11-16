@@ -6,6 +6,7 @@
 #= require js_stack/base/marionette
 #= require js_stack/base/jsroutes
 #= require js_stack/plugins/moment
+#= require js_stack/plugins/backbone.paginator
 #= require select2
 #= require bootstrap
 
