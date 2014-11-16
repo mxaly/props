@@ -1,5 +1,4 @@
-.announcement-screen
-  %p.announcement-screen__fancy-text.animated.bounce
-    We have
-    %strong= @props_count
-    props so far!
+%p.announcement-screen__fancy-text.animated.bounce
+  We have
+  %strong= @props_count
+  props so far!
