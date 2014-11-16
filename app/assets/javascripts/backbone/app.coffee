@@ -9,9 +9,11 @@
   App.addRegions
     headerRegion: '#header-region'
     mainRegion:    '#main-region'
+    announcementsRegion:    '#announcements-region'
 
   App.addInitializer ->
     App.module('HeaderApp').start(App.current_user)
+    App.module('AnnouncementsApp').start()
 
   App.rootRoute = ''
 

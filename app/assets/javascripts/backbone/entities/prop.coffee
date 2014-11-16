@@ -31,8 +31,15 @@
     newProp: ->
       new Entities.Prop
 
+    getPropsCount: ->
+      props_count = $.ajax Routes.total_api_props_path(), async: false
+      props_count.responseText
+
   App.reqres.setHandler 'prop:entities', (filters) ->
     API.getProps filters
 
   App.reqres.setHandler 'new:prop:entity', ->
     API.newProp()
+
+  App.reqres.setHandler 'props:total', ->
+    API.getPropsCount()

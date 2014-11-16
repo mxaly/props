@@ -69,6 +69,6 @@
   class List.Props extends App.Views.CompositeView
     template: 'props/list/templates/props'
     childView: List.Prop
-    childViewContainer: 'ul'
+    childViewContainer: '.props-list'
     className: 'list-group'
     emptyView: List.EmptyView

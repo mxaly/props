@@ -5,8 +5,10 @@
 @import 'components/props_list';
 @import 'components/user_card';
 @import 'components/loading';
+@import 'components/announcement_screen';
 @import 'controllers/login';
 @import 'select2';
+@import 'animate';
 
 @media (min-width: $screen-md-max) {
   .container {

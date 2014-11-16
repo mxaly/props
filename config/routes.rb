@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resources :users, only: [:index, :show]
     resources :props, only: [:index, :create] do
       resources :upvotes, only: [:create]
+      get :total, on: :collection
     end
   end
 end

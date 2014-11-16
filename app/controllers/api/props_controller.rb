@@ -9,6 +9,10 @@ class Api::PropsController < AuthenticatedController
     render json: prop_search.results
   end
 
+  def total
+    render text: Prop.count
+  end
+
   def create
     create_prop = Props::Create.new(props_repository, prop_attributtes).call
     if create_prop.success?

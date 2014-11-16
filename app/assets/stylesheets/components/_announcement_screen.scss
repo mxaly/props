@@ -1,0 +1,14 @@
+.announcement-screen {
+  position: absolute;
+  z-index: 1001;
+  background: white;
+  width: 100%;
+  height: 100%;
+  opacity: 0.95;
+}
+
+.announcement-screen__fancy-text {
+  font-size: 100px;
+  margin-top: 300px;
+  text-align: center;
+}
