@@ -2,7 +2,8 @@
 
   class List.Layout extends App.Views.Layout
     template: 'header/list/list_layout'
-    className: 'row'
+    className: 'navbar navbar-default navbar-static-top'
+    tagName: 'nav'
 
     regions:
       nav_region: '.navigation-links'
