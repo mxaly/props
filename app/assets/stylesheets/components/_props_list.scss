@@ -20,6 +20,7 @@
   line-height: 1.2;
   font-size: 3em;
   margin-bottom: 0;
+  word-break: break-word;
 
   @media (max-width: $screen-md-min) {
     font-size: 2em;
