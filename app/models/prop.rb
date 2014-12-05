@@ -4,7 +4,8 @@ class Prop < ActiveRecord::Base
   has_many :upvotes
   belongs_to :propser, class_name: 'User'
 
-  validates :user_id, :propser, :body, presence: true
+  validates :propser, :body, presence: true
+  validate :has_prop_receivers
   validate :can_prop, on: :create
 
   scope :with_includes, -> { includes(:users, :propser) }
@@ -13,6 +14,10 @@ class Prop < ActiveRecord::Base
   private
 
   def can_prop
-    self.errors.add(:user_id, "You can't give a prop to yourself... It's not how the world works:)") if user.present? && (propser == user)
+    self.errors.add(:user_id, "You can't give a prop to yourself... It's not how the world works:)") if users.any? && (users.include? propser)
+  end
+
+  def has_prop_receivers
+    users.any?
   end
 end
