@@ -1,8 +1,5 @@
+.selected-users
 .form-group
-  %label{ for: 'propser' } person to praise
-  %select#propser{ name: 'user_id' }
-    %option
-  %img.praised-person-avatar
+  %input#propser{ name: 'prop[user_ids]' }
 .form-group
-  %label{ for: 'prop_body' } body
-  %textarea#prop_body.form-control{ name: 'body', rows: 2, placeholder: 'What do you want to thank for?' }
+  %textarea#prop_body.form-control{ name: 'prop[body]', rows: 2, placeholder: 'What do you want to thank for?' }
