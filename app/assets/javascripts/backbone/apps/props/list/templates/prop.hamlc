@@ -1,13 +1,12 @@
 .row
-  .col-lg-3.col-md-3.col-xs-12.prop-users
-    %a{ href: "#users/#{@propser?.id}" }
+  .col-xs-12.prop-users
+    %a.prop-gaver{ href: "#users/#{@propser?.id}" }
       %img{ src: @propser?.avatar_url}
-    %i.glyphicon.glyphicon-chevron-right
-    %a{ href: "#users/#{@user?.id}" }
-      %img{ src: @user?.avatar_url}
-  .col-lg-9.col-md-9.col-xs-12.prop-content
-    #{@created_at}
-    .clearfix
+    %i.glyphicon.glyphicon-chevron-right.prop-to
+    .props-receivers
+    .prop-create-at
+      #{@created_at}
+  .col-xs-12.prop-content
     %p.lead.prop-body
       #{@body}
     .upvote-area.pull-right

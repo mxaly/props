@@ -1,10 +1,10 @@
 class PropSerializer < BaseSerializer
   include ActionView::Helpers::SanitizeHelper
 
-  attributes :id, :user, :propser, :body, :created_at, :upvotes_count,
+  attributes :id, :users, :propser, :body, :created_at, :upvotes_count,
              :is_upvote_possible
 
-  has_one :user
+  has_many :users, serializer: UserSerializer
   has_one :propser, serializer: UserSerializer
 
   def body
@@ -12,7 +12,7 @@ class PropSerializer < BaseSerializer
   end
 
   def is_upvote_possible
-    !([object.user_id, object.propser_id].include?(scope.id) || user_has_upvoted?)
+    !((object.propser_id == scope.id) || user_has_upvoted?)
   end
 
   private

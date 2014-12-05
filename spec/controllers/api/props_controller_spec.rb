@@ -47,7 +47,7 @@ describe Api::PropsController do
     end
 
     context 'with valid attributes' do
-      let(:prop_attrs) { { user_id: '1', body: 'body' }.as_json }
+      let(:prop_attrs) { { user_ids: '1,2,3', body: 'body' }.as_json }
 
       it_behaves_like 'a successful JSON request'
 
