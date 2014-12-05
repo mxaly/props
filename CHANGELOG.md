@@ -4,6 +4,7 @@ All notable changes to this project will be documented in this file.
 # 0.9.0 - unreleased
 ## Added
 * NewRelic monitoring
+* Added API with tokens
 * Ability to add a prop for multiple users at once
 * Bigger avatars of prop receivers in form. Select list contains user names and
   thumbnails

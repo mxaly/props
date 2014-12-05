@@ -8,6 +8,7 @@ gem 'active_model_serializers', github: 'rails-api/active_model_serializers', br
 gem 'attr_extras'
 gem 'coffee-rails'
 gem 'decent_exposure'
+gem 'easy_tokens'
 gem 'gon'
 gem 'gravatar-ultimate'
 gem 'haml-rails'

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount EasyTokens::Engine, at: 'et'
   root 'home#index'
   get 'app' => 'authenticated#main_app'
 
@@ -8,6 +9,9 @@ Rails.application.routes.draw do
   get '/auth/failure' => 'sessions#failure'
 
   namespace :api do
+    namespace :v1 do
+      resources :props, only: [:index, :create]
+    end
     resources :users, only: [:index, :show]
     resources :props, only: [:index, :create] do
       resources :upvotes, only: [:create]
