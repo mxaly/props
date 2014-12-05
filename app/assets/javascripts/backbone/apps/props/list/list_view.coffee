@@ -85,7 +85,7 @@
         @ui.propsReceivers.append(@receiverTemplate(user))
 
     receiverTemplate: (user) ->
-      "<a href='#users/#{user.id}'><img src='#{user.avatar_url}' title='#{user.name}'/></a>"
+      "<a class='props-receiver-avatar' href='#users/#{user.id}'><img src='#{user.avatar_url}' title='#{user.name}'/></a>"
 
   class List.EmptyView extends App.Views.ItemView
     template: 'props/list/templates/empty'
