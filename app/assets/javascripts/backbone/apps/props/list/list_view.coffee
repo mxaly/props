@@ -31,10 +31,10 @@
       selectedUsers = @users.filter (user) ->
         _.include e.val, String(user.get('id'))
       return if !selectedUsers?
-      @ui.inputedUsers.html('')
+      @ui.selectedUsers.html('')
 
       _.each selectedUsers.reverse(), (u) =>
-        @ui.inputedUsers.append(@userBigTemplate(u))
+        @ui.selectedUsers.append(@userBigTemplate(u))
 
     renderSelectItems: (users) ->
       users_data = users.map (user) ->
