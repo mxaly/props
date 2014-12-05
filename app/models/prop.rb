@@ -1,7 +1,8 @@
 class Prop < ActiveRecord::Base
-  belongs_to :user
-  belongs_to :propser, class_name: 'User'
+  has_many :users, through: :prop_receivers
+  has_many :prop_receivers
   has_many :upvotes
+  belongs_to :propser, class_name: 'User'
 
   validates :user_id, :propser, :body, presence: true
   validate :can_prop, on: :create
