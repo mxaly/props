@@ -4,6 +4,8 @@
 
 .props-list-item {
   padding: 15px;
+  border-radius: 3px;
+  margin-bottom: 15px;
 }
 
 .prop-users {
@@ -43,13 +45,6 @@
 .props-receiver-avatar {
   margin: 0 10px 10px 0;
 }
-
-.prop-create-at {
-  position: absolute;
-  top: 0;
-  right: 20px;
-}
-
 .prop-content {
   border-top: 1px solid #ddd;
   padding-top: 15px;
@@ -67,4 +62,8 @@
   @media (max-width: $screen-xs-max) {
     font-size: 1.4em;
   }
+}
+
+.prop-footer {
+  margin-top: 20px;
 }
