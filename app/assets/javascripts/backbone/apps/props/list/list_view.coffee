@@ -70,12 +70,22 @@
     modelEvents:
       'change' : 'render'
 
-    onUpvote: (e) ->
-      console.log 'kliknal'
+    ui:
+      propsReceivers: '.props-receivers'
 
     serializeData: ->
       _.extend super,
         created_at: moment(@model.get('created_at')).fromNow()
+
+    onRender: ->
+      @insertReceivers()
+
+    insertReceivers: ->
+      _.each @model.get('users'), (user) =>
+        @ui.propsReceivers.append(@receiverTemplate(user))
+
+    receiverTemplate: (user) ->
+      "<a href='#users/#{user.id}'><img src='#{user.avatar_url}' title='#{user.name}'/></a>"
 
   class List.EmptyView extends App.Views.ItemView
     template: 'props/list/templates/empty'

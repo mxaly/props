@@ -3,8 +3,7 @@
     %a{ href: "#users/#{@propser?.id}" }
       %img{ src: @propser?.avatar_url}
     %i.glyphicon.glyphicon-chevron-right
-    %a{ href: "#users/#{@user?.id}" }
-      %img{ src: @user?.avatar_url}
+    .props-receivers
   .col-lg-9.col-md-9.col-xs-12.prop-content
     #{@created_at}
     .clearfix
