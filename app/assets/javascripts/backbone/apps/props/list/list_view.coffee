@@ -16,34 +16,48 @@
         cancel: false
 
     ui:
-      select: 'select'
+      input: 'input'
       praisedPersonAvatar: '.praised-person-avatar'
+      selectedUsers: '.selected-users'
 
     initialize: (options) ->
       @users ||= options.users
 
     onShow: ->
       @renderSelectItems @users
-      @ui.select.on 'change', (e) =>
-        selectedUser = @users.get(e.val)
-        avatarUrl = if selectedUser?
-          selectedUser.get('avatar_url')
-        else
-          ''
-        @ui.praisedPersonAvatar.attr('src', avatarUrl)
+      @ui.input.on 'change', @onSelectChange
 
+    onSelectChange: (e) =>
+      selectedUsers = @users.filter (user) ->
+        _.include e.val, String(user.get('id'))
+      return if !selectedUsers?
+      @ui.inputedUsers.html('')
+
+      _.each selectedUsers.reverse(), (u) =>
+        @ui.inputedUsers.append(@userBigTemplate(u))
 
     renderSelectItems: (users) ->
-      users.each (user) =>
-        @ui.select.append "<option value='#{user.get('id')}'>#{user.get('name')}</option>"
-      @ui.select.select2
-        placeholder: 'Select user'
+      users_data = users.map (user) ->
+        { id: user.get('id'), text: user.get('name' ), avatar_url: user.get('avatar_url')}
+
+      @ui.input.select2
+        placeholder: 'Who do you want to prop?'
         allowClear: true
-        dropdownAutoWidth : true
+        dropdownAutoWidth: true
+        multiple: true
+        data: users_data
         width: 'resolve'
+        formatResult: @userSmallTemplate
+
+    userSmallTemplate: (user) ->
+      "<img class='user-small-face' src='" + user.avatar_url + "'/>" + user.text
+
+    userBigTemplate: (user) ->
+      "<img class='praised-person-avatar' src='" + user.get('avatar_url') + "'/>"
 
   class List.Header extends App.Views.Layout
     template: 'props/list/templates/header'
+    className: 'jumbotron clearfix'
     regions:
       'form_region' : '.form-region'
 
