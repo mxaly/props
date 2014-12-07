@@ -2,7 +2,7 @@ class PropsRepository
   delegate :find, to: :all
 
   def all
-    Prop.includes(:user, :propser)
+    Prop.includes(:users, :propser)
   end
 
   def add(attributes)
