@@ -1,7 +1,7 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
-# 0.9.0 - unreleased
+# 0.9.0 - 2014-12-05
 ## Added
 * NewRelic monitoring
 * Added API with tokens
