@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe Api::PropsController do
+describe Api::V1::PropsController do
   let(:user) { double(:user, id: 5) }
 
   describe '#index', pending: 'We should use token here' do
@@ -31,7 +31,7 @@ describe Api::PropsController do
     end
   end
 
-  describe '#create' do
+  describe '#create', pending: 'We should use token here' do
     let(:attrs) { { prop: prop_attrs }.as_json }
     let(:prop) { Prop.new }
     let(:props_repository) { double(:props_repository, add: prop) }
