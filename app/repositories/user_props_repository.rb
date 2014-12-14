@@ -10,6 +10,6 @@ class UserPropsRepository
   end
 
   def received
-    Prop.where(user_id: user.id)
+    user.props
   end
 end
