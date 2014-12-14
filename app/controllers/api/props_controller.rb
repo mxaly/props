@@ -25,7 +25,7 @@ class Api::PropsController < AuthenticatedController
   private
 
   def prop_attributtes
-    params.require(:prop).permit(:body, :user_ids).merge(propser_id: current_user.id)
+    params.permit(:body, :user_ids).merge(propser_id: current_user.id)
   end
 
   def search_params
