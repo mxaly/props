@@ -41,7 +41,6 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller', platforms: [:mri_19, :mri_20, :mri_21, :rbx]
   gem 'bullet'
-  gem 'ffaker'
   gem 'foreman'
   gem 'guard-bundler'
   gem 'guard-rails'
@@ -62,6 +61,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'pry-rescue'
   gem 'rspec-rails'
+  gem 'ffaker'
 end
 
 group :test do
