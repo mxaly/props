@@ -1,6 +1,11 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+# 0.10.0 - unreleased
+## Fixed
+* Validation errors fixed - adding multiprops functionality earlier caused some
+  serious validation gaps.
+
 # 0.9.0 - 2014-12-05
 ## Added
 * NewRelic monitoring
