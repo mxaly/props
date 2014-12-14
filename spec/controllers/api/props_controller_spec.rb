@@ -33,7 +33,7 @@ describe Api::PropsController do
   end
 
   describe '#create' do
-    let(:attrs) { { prop: prop_attrs }.as_json }
+    let(:attrs) { prop_attrs.as_json }
     let(:prop) { Prop.new }
     let(:props_repository) { double(:props_repository, add: prop) }
 
