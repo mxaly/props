@@ -1,0 +1,9 @@
+%nav
+  %ul.pagination
+    %li
+      %a.previous-page{ 'data-page' => 'previous', href: '#'} Previous
+    %li
+      %a{ href: '#' }= @currentPage
+
+    %li
+      %a.next-page{ 'data-page' => 'next', href: '#'} Next

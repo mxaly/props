@@ -21,6 +21,16 @@
     url: ->
       Routes.api_props_path()
 
+    parseRecords: (resp) ->
+      resp.props
+
+    parseState: (resp, queryParams, state, options) ->
+      {
+        currentPage: resp.meta.current_page
+        totalRecords: resp.meta.total_count
+        totalPages: resp.meta.total_pages
+      }
+
   API =
     getProps: (filters) ->
       props = new Entities.Props

@@ -95,13 +95,29 @@
     childViewContainer: '.props-list'
     className: 'list-group'
     emptyView: List.EmptyView
-
     events:
       'click [data-page]' : 'pageSelected'
+
+    initialize: (options) ->
+      @listenTo @, 'add:child', @showPagination
+
+    currentPage: ->
+      @collection.state.currentPage
+
+    showPagination: ->
+      $pagination = @$('.pagination-region')
+      paginationData =
+        currentPage: @currentPage()
+
+      $pagination.html Marionette.Renderer.render('props/list/templates/pagination', paginationData)
+
+      $prevPage = @$('.previous-page')
+      $nextPage = @$('.next-page')
+      $prevPage.hide() unless @collection.hasPreviousPage()
+      $nextPage.hide() unless @collection.hasNextPage()
 
     pageSelected: (e) ->
       if $(e.target).data().page == 'next'
         @collection.getNextPage()
       else
         @collection.getPreviousPage()
-

@@ -1,7 +1,2 @@
 %ul.props-list
-%nav
-  %ul.pagination
-    %li
-      %a{ 'data-page' => 'previous', href: '#'} Previous
-    %li
-      %a{ 'data-page' => 'next', href: '#'} Next
+.pagination-region
