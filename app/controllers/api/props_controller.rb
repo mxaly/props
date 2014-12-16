@@ -6,7 +6,7 @@ class Api::PropsController < AuthenticatedController
       show_upvote_status_for_user_id: current_user.id)
     prop_search = props_repository.search search_attrs
 
-    render json: prop_search.results.page(params[:page])
+    render json: prop_search.results.page(params[:page]), serializer: PropsSerializer
   end
 
   def total

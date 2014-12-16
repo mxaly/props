@@ -8,7 +8,8 @@ describe Api::PropsController do
       { user_id: '1', propser_id: '2' }.as_json
     end
     let(:props) { [Prop.new(id: 3), Prop.new(id: 4)] }
-    let(:props_search) { double(:props_search, results: props) }
+    let(:paginated_props) { Kaminari.paginate_array(props) }
+    let(:props_search) { double(:props_search, results: paginated_props) }
     let(:props_repository) { double(:props_repository, search: props_search) }
 
     before do
@@ -26,9 +27,22 @@ describe Api::PropsController do
     end
 
     it 'returns search results' do
-      expect(json_response.class).to be Array
-      expect(json_response.count).to eq 2
-      expect(json_response.first['id']).to eq props.first.id
+      results = json_response['props']
+      expect(results.class).to be Array
+      expect(results.count).to eq 2
+      expect(results.first['id']).to eq props.first.id
+    end
+
+    it 'returns meta key with pagination data' do
+      results = json_response['meta']
+      expect(results['current_page']).to eq 1
+      expect(results['total_count']).to eq 2
+      expect(results['total_pages']).to eq 1
+    end
+
+    it 'returns hash of objects' do
+      expect(json_response.keys).to include 'props'
+      expect(json_response.keys).to include 'meta'
     end
   end
 
