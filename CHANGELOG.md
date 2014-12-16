@@ -1,10 +1,14 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
-# 0.10.0 - unreleased
+# 0.10.0 - 2014-12-16
 ## Fixed
 * Validation errors fixed - adding multiprops functionality earlier caused some
   serious validation gaps.
+
+## Added
+* Rails bumped to 4.2.rc3
+* Overall gems update
 
 # 0.9.0 - 2014-12-05
 ## Added
