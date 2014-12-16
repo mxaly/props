@@ -109,7 +109,12 @@
       paginationData =
         currentPage: @currentPage()
 
-      $pagination.html Marionette.Renderer.render('props/list/templates/pagination', paginationData)
+      html = if @collection.state.totalPages == 1
+        ''
+      else
+        Marionette.Renderer.render('props/list/templates/pagination', paginationData)
+
+      $pagination.html html
 
       $prevPage = @$('.previous-page')
       $nextPage = @$('.next-page')
@@ -117,6 +122,7 @@
       $nextPage.hide() unless @collection.hasNextPage()
 
     pageSelected: (e) ->
+      e.preventDefault()
       if $(e.target).data().page == 'next'
         @collection.getNextPage()
       else

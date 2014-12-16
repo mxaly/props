@@ -3,7 +3,7 @@
     %li
       %a.previous-page{ 'data-page' => 'previous', href: '#'} Previous
     %li
-      %a{ href: '#' }= @currentPage
+      %a{ 'data-page' => 'current', href: '#' }= @currentPage
 
     %li
       %a.next-page{ 'data-page' => 'next', href: '#'} Next
