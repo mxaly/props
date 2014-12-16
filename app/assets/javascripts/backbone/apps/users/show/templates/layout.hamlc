@@ -1,4 +1,4 @@
-%h2
+%h1
   Displaying
   %strong #{@name}
   profile:
@@ -19,8 +19,8 @@
         %span.label.label-info
           #{@props_count.given}
 
-%h3 Received props:
+%h2 Received props:
 .received-props-region
 
-%h3 Given props:
+%h2 Given props:
 .given-props-region
