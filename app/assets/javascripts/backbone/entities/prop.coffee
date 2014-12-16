@@ -19,7 +19,7 @@
     comparator: (model) ->
       - moment(model.get('created_at')).format('X')
     url: ->
-      Routes.api_props_path()
+      Routes.api_props_path(@filters)
 
     parseRecords: (resp) ->
       resp.props
@@ -32,10 +32,10 @@
       }
 
   API =
-    getProps: (filters) ->
+    getProps: (filters = {}) ->
       props = new Entities.Props
-      props.fetch
-        data: filters if filters
+      props.filters = filters
+      props.fetch()
       props
 
     newProp: ->
