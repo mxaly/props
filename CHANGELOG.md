@@ -9,6 +9,7 @@ All notable changes to this project will be documented in this file.
 ## Added
 * Rails bumped to 4.2.rc3
 * Overall gems update
+* Pagination on props records
 
 # 0.9.0 - 2014-12-05
 ## Added
