@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   validates_presence_of :name
-  has_many :props
+  has_many :props, through: :prop_receivers
+  has_many :prop_receivers
 
   def to_s
     name

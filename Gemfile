@@ -1,13 +1,14 @@
 source 'https://rubygems.org'
 source 'https://rails-assets.org'
 
-ruby '2.1.3'
-gem 'rails', '4.2.0.beta4'
+ruby '2.1.5'
+gem 'rails', '4.2.0.rc3'
 
 gem 'active_model_serializers', github: 'rails-api/active_model_serializers', branch: '0-9-stable'
 gem 'attr_extras'
 gem 'coffee-rails'
 gem 'decent_exposure'
+gem 'easy_tokens'
 gem 'gon'
 gem 'gravatar-ultimate'
 gem 'haml-rails'
@@ -23,7 +24,7 @@ gem 'omniauth-google-oauth2'
 gem 'pg'
 gem 'rails-assets-select2'
 gem 'rollbar'
-gem 'sass-rails', '~> 5.0.0.beta1'
+gem 'sass-rails'
 gem 'searchlight'
 gem 'sendgrid'
 gem 'slack-notifier'
@@ -41,7 +42,6 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller', platforms: [:mri_19, :mri_20, :mri_21, :rbx]
   gem 'bullet'
-  gem 'ffaker'
   gem 'foreman'
   gem 'guard-bundler'
   gem 'guard-rails'
@@ -62,6 +62,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'pry-rescue'
   gem 'rspec-rails'
+  gem 'ffaker'
 end
 
 group :test do

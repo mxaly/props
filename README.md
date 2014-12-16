@@ -11,16 +11,40 @@ in a geeky way.
 ## Technologies
 
 * Ruby on Rails 4.2
-* Ruby 2.1.3
+* Ruby 2.1
 * Postgres
 
 ## Setup
 
-> TBD
+Copy database settings:
 
-## Development
+```
+cp config/database.yml.sample config/database.yml
+```
 
-> TBD
+Create DB user:
+
+```
+createuser -s -r props
+```
+
+Setup database:
+
+```
+bin/rake db:setup
+```
+
+Setup config file for your environment:
+
+```
+cp config/sec_config.yml.sample config/sec_config.yml
+```
+
+Generate omniauth credentials for your application by going to [Google Developer
+Console](https://code.google.com/apis/console) and creating new project there.
+
+When you have the credentials, put them in the `config/sec_config.yml` file
+under `omniauth_provider_key` and `omniauth_provider_secret` values.
 
 ## Tests
 
@@ -49,4 +73,4 @@ me and I’ll add a note to the README so that others can find your work.
 
 ## License
 
-> TBD
+MIT. See LICENSE.

@@ -11,10 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141105212417) do
+ActiveRecord::Schema.define(version: 20141207164220) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "easy_tokens_tokens", force: true do |t|
+    t.string   "value"
+    t.string   "description"
+    t.string   "owner_id"
+    t.datetime "deactivated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "prop_receivers", force: true do |t|
+    t.integer "prop_id"
+    t.integer "user_id"
+  end
+
+  add_index "prop_receivers", ["prop_id", "user_id"], name: "index_prop_receivers_on_prop_id_and_user_id", unique: true, using: :btree
+  add_index "prop_receivers", ["prop_id"], name: "index_prop_receivers_on_prop_id", using: :btree
+  add_index "prop_receivers", ["user_id"], name: "index_prop_receivers_on_user_id", using: :btree
 
   create_table "props", force: true do |t|
     t.integer  "user_id"
@@ -45,6 +63,7 @@ ActiveRecord::Schema.define(version: 20141105212417) do
     t.string   "uid"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "admin",      default: false
   end
 
 end
