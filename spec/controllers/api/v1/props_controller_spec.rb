@@ -6,7 +6,7 @@ describe Api::V1::PropsController do
 
   describe '#index' do
     let(:attrs) do
-      { user_id: '1', propser_id: '2' , token: token.value }.as_json
+      { user_id: '1', propser_id: '2', token: token.value }.as_json
     end
     let(:props) { [Prop.new(id: 3), Prop.new(id: 4)] }
     let(:paginated_props) { Kaminari.paginate_array(props) }

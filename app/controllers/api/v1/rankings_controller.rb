@@ -18,17 +18,17 @@ module Api::V1
       hash = {}
       props.each do |prop|
         prop.prop_receivers.each do |receiver|
-          hash.has_key?(receiver.user_id) ? hash[receiver.user_id] += 1 : hash.merge!({receiver.user_id => 1})
+          hash.key?(receiver.user_id) ? hash[receiver.user_id] += 1 : hash.merge!({ receiver.user_id => 1})
         end
       end
       hash
     end
 
     def most_propsed(hash)
-      top = hash.sort_by { |key,value| value }.last
+      top = hash.sort_by { |_key, value| value }.last
       user = users_repository.find_by_id(top[0]).name
       props_count = top[1]
-      {user: user, props_count: props_count}
+      { user: user, props_count: props_count }
     end
   end
 end
