@@ -1,7 +1,7 @@
 module Api::V1
-  class RankingsController < AuthenticatedController
+  class RankingsController < ApiController
     expose(:props_repository) { PropsRepository.new }
-    expose(:user_repository) { UsersRepository.new }
+    expose(:users_repository) { UsersRepository.new }
     skip_filter :authenticate_user!
     check_token_on :hero_of_the_week
 
@@ -26,7 +26,7 @@ module Api::V1
 
     def most_propsed(hash)
       top = hash.sort_by { |key,value| value }.last
-      user = user_repository.find_by_id(top[0]).name
+      user = users_repository.find_by_id(top[0]).name
       props_count = top[1]
       {user: user, props_count: props_count}
     end
