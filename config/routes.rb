@@ -11,6 +11,9 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :props, only: [:index, :create]
+      resources :rankings, only: [:index] do
+        get :hero_of_the_week, on: :collection
+      end
     end
     resources :users, only: [:index, :show]
     resources :props, only: [:index, :create] do
