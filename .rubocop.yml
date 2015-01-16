@@ -1,0 +1,18 @@
+AllCops:
+  Exclude:
+    - 'bin/*'
+    - 'db/**/*'
+    - 'config/**/*'
+    - 'script/**/*'
+    - 'Gemfile'
+    - 'Guardfile'
+    - 'Rakefile'
+Documentation:
+  Enabled: false
+Rails/ActionFilter:
+  Enabled: false
+SignalException:
+  Enabled: false
+Style/TrailingComma:
+  EnforcedStyleForMultiline: comma
+  Enabled: true
