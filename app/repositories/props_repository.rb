@@ -5,6 +5,12 @@ class PropsRepository
     Prop.includes(:users, :propser)
   end
 
+  def count_per_user(created_at = nil)
+    query = all
+    query = query.where(created_at: created_at) if created_at.present?
+    query.joins(:prop_receivers).group('prop_receivers.user_id').count
+  end
+
   def add(attributes)
     user_ids = attributes.delete(:user_ids) || ''
     user_ids = clean_ids user_ids
