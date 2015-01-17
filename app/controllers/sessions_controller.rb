@@ -1,11 +1,10 @@
 class SessionsController < ApplicationController
-
   def new
     redirect_to '/auth/google_oauth2'
   end
 
   def create
-    auth = request.env["omniauth.auth"]
+    auth = request.env['omniauth.auth']
     unless valid_email? auth.info.email
       return failure('Your email is invalid!')
     end
@@ -14,11 +13,10 @@ class SessionsController < ApplicationController
     reset_session
     session[:user_id] = user.id
     if user.email.blank?
-      redirect_to edit_user_path(user), alert: "Please enter your email address."
+      redirect_to edit_user_path(user), alert: 'Please enter your email address.'
     else
       redirect_to app_path, notice: 'Signed in!'
     end
-
   end
 
   def destroy

@@ -18,7 +18,7 @@ module Api::V1
       hash = {}
       props.each do |prop|
         prop.prop_receivers.each do |receiver|
-          hash.key?(receiver.user_id) ? hash[receiver.user_id] += 1 : hash.merge!({ receiver.user_id => 1})
+          hash.key?(receiver.user_id) ? hash[receiver.user_id] += 1 : hash.merge!(receiver.user_id => 1)
         end
       end
       hash

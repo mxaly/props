@@ -23,7 +23,7 @@ describe Api::V1::PropsController do
 
       it_behaves_like 'a successful JSON request'
 
-      it 'passes correct attributes including upvotes status to search method' do
+      it 'passes correct attributes including upvotes status to search' do
         expected_attrs = attrs.merge!(show_upvote_status_for_user_id: nil)
         expect(props_repository).to have_received(:search).with(expected_attrs)
       end
@@ -37,7 +37,7 @@ describe Api::V1::PropsController do
 
       it_behaves_like 'a successful JSON request'
 
-      it 'passes correct attributes including upvotes status to search method' do
+      it 'passes correct attributes including upvotes status to search' do
         expected_attrs = attrs.merge!(show_upvote_status_for_user_id: 5)
         expect(props_repository).to have_received(:search).with(expected_attrs)
       end
@@ -53,7 +53,13 @@ describe Api::V1::PropsController do
   end
 
   describe '#create' do
-    let(:prop_attrs) { { user_ids: '1,2,3', body: 'body', propser_email: 'mail@example.com' }.as_json }
+    let(:prop_attrs) do
+      {
+        user_ids: '1,2,3',
+        body: 'body',
+        propser_email: 'mail@example.com',
+      }.as_json
+    end
     let(:prop) { Prop.new }
     let(:props_repository) { double(:props_repository, add: prop) }
 
@@ -75,7 +81,9 @@ describe Api::V1::PropsController do
         it_behaves_like 'a successful JSON request'
 
         it 'passes correct attributes to repository' do
-          expected_attrs = prop_attrs.merge('propser_id' => user.id).except('propser_email')
+          expected_attrs = prop_attrs.merge(
+            'propser_id' => user.id,
+          ).except('propser_email')
           expect(props_repository).to have_received(:add).with(expected_attrs)
         end
       end

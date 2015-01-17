@@ -9,7 +9,7 @@ class AuthenticatedController < ApplicationController
   def setup_gon
     gon.push(
       environment: Rails.env,
-      current_user: current_user
+      current_user: current_user,
     )
   end
 end

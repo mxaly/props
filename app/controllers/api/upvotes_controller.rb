@@ -8,7 +8,7 @@ module Api
       upvote_prop = Props::Upvote.new(
         prop: prop,
         user: current_user,
-        upvotes_repository: upvotes_repository
+        upvotes_repository: upvotes_repository,
       ).call
       if upvote_prop.success?
         render json: upvote_prop.data, user: current_user, serializer: PropSerializer

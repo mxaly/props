@@ -10,11 +10,9 @@ class ApplicationController < ActionController::Base
   private
 
   def current_user
-    begin
-      @current_user ||= User.find(session[:user_id]) if session[:user_id]
-    rescue Exception => e
-      nil
-    end
+    @current_user ||= User.find(session[:user_id]) if session[:user_id]
+  rescue Exception => e
+    nil
   end
 
   def user_signed_in?
@@ -24,7 +22,7 @@ class ApplicationController < ActionController::Base
   def correct_user?
     @user = User.find(params[:id])
     unless current_user == @user
-      redirect_to root_url, alert: "Access denied."
+      redirect_to root_url, alert: 'Access denied.'
     end
   end
 

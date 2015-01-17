@@ -21,7 +21,6 @@ class Prop < ActiveRecord::Base
 
   def selfpropsing
     errors.add(:user_ids, I18n.t('props.errors.selfpropsing')) if prop_receivers.any? { |r| r.user_id == propser_id }
-
   end
 
   def receivers_limit

@@ -8,9 +8,9 @@ class Notifier
 
     def channel
       @channel ||= ::Slack::Notifier.new AppConfig.slack.webhook_url,
-        channel: AppConfig.slack.default_channel,
-        username: 'PropsApp',
-        color: '#0092ca'
+                                         channel: AppConfig.slack.default_channel,
+                                         username: 'PropsApp',
+                                         color: '#0092ca'
     end
   end
 end
