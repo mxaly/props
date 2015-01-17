@@ -11,8 +11,6 @@ class ApplicationController < ActionController::Base
 
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
-  rescue Exception => e
-    nil
   end
 
   def user_signed_in?
@@ -21,14 +19,11 @@ class ApplicationController < ActionController::Base
 
   def correct_user?
     @user = User.find(params[:id])
-    unless current_user == @user
-      redirect_to root_url, alert: 'Access denied.'
-    end
+    redirect_to root_url, alert: 'Access denied.' if current_user != @user
   end
 
   def authenticate_user!
-    if current_user.nil?
-      redirect_to root_url, alert: 'You need to sign in for access to this page.'
-    end
+    return if current_user.present?
+    redirect_to root_url, alert: 'You need to sign in for access to this page.'
   end
 end

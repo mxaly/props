@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  validates_presence_of :name
+  validates :name, presence: true
   has_many :props, through: :prop_receivers
   has_many :prop_receivers
 

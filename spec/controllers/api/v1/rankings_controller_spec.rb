@@ -4,7 +4,9 @@ describe Api::V1::RankingsController do
   describe '#hero_of_the_week' do
     let(:mark) { create(:user) }
     let(:john) { create(:user) }
-    let(:token) { double(EasyTokens::Token, owner: john, value: 'random_string') }
+    let(:token) do
+      double(EasyTokens::Token, owner: john, value: 'random_string')
+    end
     let(:props) { [Prop.new(id: 3), Prop.new(id: 4)] }
     let(:props_repository) { double(:props_repository) }
 
@@ -12,9 +14,11 @@ describe Api::V1::RankingsController do
       allow(controller).to receive(:props_repository)
         .and_return(props_repository)
       allow(EasyTokens::Token).to receive(:find_by_value).and_return(token)
-      allow(EasyTokens::TokenValidator).to receive(:valid?).with(token.value).and_return(true)
+      allow(EasyTokens::TokenValidator).to receive(:valid?).with(token.value)
+        .and_return(true)
       allow(props_repository).to receive_message_chain('all.where') { props }
-      allow(controller).to receive(:propsed_users).and_return(mark.id => 3, john.id => 4)
+      allow(controller).to receive(:propsed_users)
+        .and_return(mark.id => 3, john.id => 4)
       get :hero_of_the_week, { token: token.value }.as_json
     end
 

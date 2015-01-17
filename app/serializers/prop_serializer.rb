@@ -4,8 +4,8 @@ class PropSerializer < BaseSerializer
   attributes :id, :users, :propser, :body, :created_at, :upvotes_count,
              :is_upvote_possible
 
-  has_many :users, serializer: UserSerializer
-  has_one :propser, serializer: UserSerializer
+  has_many :users, serializer: UserSerializer::Base
+  has_one :propser, serializer: UserSerializer::Base
 
   def body
     sanitize object.body, tags: %w(img)

@@ -16,3 +16,6 @@ SignalException:
 Style/TrailingComma:
   EnforcedStyleForMultiline: comma
   Enabled: true
+Style/PredicateName:
+  Exclude:
+    - 'app/serializers/**/*'

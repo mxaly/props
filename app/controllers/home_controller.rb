@@ -6,8 +6,6 @@ class HomeController < ApplicationController
   private
 
   def move_to_app_if_user
-    if current_user.present?
-      redirect_to app_path
-    end
+    redirect_to app_path if current_user.present?
   end
 end
