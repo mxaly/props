@@ -4,12 +4,15 @@ class SessionsController < ApplicationController
   end
 
   def create
-    auth = request.env['omniauth.auth']
-    return failure('Your email is invalid!') unless valid_email? auth.info.email
-    user = User.where(
-      provider: auth['provider'],
-      uid: auth['uid'].to_s,
-    ).first || User.create_with_omniauth(auth)
+    create_session = Sessions::Create.new(request.env['omniauth.auth']).call
+    if create_session.success?
+      sign_in_user create_session.data.fetch(:user)
+    else
+      failure(create_session.errors)
+    end
+  end
+
+  def sign_in_user(user)
     reset_session
     session[:user_id] = user.id
     if user.email.blank?
@@ -29,13 +32,5 @@ class SessionsController < ApplicationController
     message ||= params[:message].humanize
     redirect_to root_url, alert: "Authentication error: #{message}",
                           status: :unauthorized
-  end
-
-  private
-
-  def valid_email?(email)
-    match = email.match(/.*\@(?<domain>.*\z)/)
-    domain = match.present? ? match[:domain] : nil
-    AppConfig.allowed_email_domains.include?(domain)
   end
 end
