@@ -1,19 +1,13 @@
 class SessionsController < ApplicationController
+  before_action :reset_session, only: [:create, :destroy]
+  expose(:users_repository) { UsersRepository.new }
+
   def new
     redirect_to '/auth/google_oauth2'
   end
 
   def create
-    create_session = Sessions::Create.new(request.env['omniauth.auth']).call
-    if create_session.success?
-      sign_in_user create_session.data.fetch(:user)
-    else
-      failure(create_session.errors)
-    end
-  end
-
-  def sign_in_user(user)
-    reset_session
+    user = users_repository.user_from_auth(request.env['omniauth.auth'])
     session[:user_id] = user.id
     if user.email.blank?
       redirect_to edit_user_path(user),
@@ -24,7 +18,6 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    reset_session
     redirect_to root_url, notice: 'Signed out!'
   end
 

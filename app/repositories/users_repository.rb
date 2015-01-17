@@ -10,4 +10,11 @@ class UsersRepository
   def find_by_email(email)
     User.find_by_email(email)
   end
+
+  def user_from_auth(auth)
+    User.where(
+      provider: auth['provider'],
+      uid: auth['uid'].to_s,
+    ).first || User.create_with_omniauth(auth)
+  end
 end

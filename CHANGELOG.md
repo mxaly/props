@@ -14,6 +14,11 @@ All notable changes to this project will be documented in this file.
 * All the code-style issues mentioned by rubocop were fixed and project has 0
   warnings currently - I would like to keep it this way:)
 
+## Removed
+
+* Checking domain is now done ONLY via omniauth - it will check your Google Apps
+  domain set in `config.yml` under `domain_name` key
+
 # 0.11.0 - 2014-12-22
 # Added
 
