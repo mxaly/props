@@ -1,6 +1,19 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+# 0.12.0 - 2015-01-17
+## Added
+
+* API endpoint for checking the `hero_of_the_week` returning user with the most
+  props over the current week. thanks [@jacobi007](https://github.com/jacobi007)!
+* Code style checking is done via `rubocop-guard`, please follow the guideline
+  and fix any issues mentioned by rubocop
+
+## Fixed
+
+* All the code-style issues mentioned by rubocop were fixed and project has 0
+  warnings currently - I would like to keep it this way:)
+
 # 0.11.0 - 2014-12-22
 # Added
 
