@@ -14,15 +14,15 @@ module Api
                serializer: false
       end
     end
-  end
 
-  private
+    private
 
-  def upvote_prop
-    @upvote_prop ||= Props::Upvote.new(
-      prop: prop,
-      user: current_user,
-      upvotes_repository: upvotes_repository,
-    ).call
+    def upvote_prop
+      @upvote_prop ||= Props::Upvote.new(
+        prop: prop,
+        user: current_user,
+        upvotes_repository: upvotes_repository,
+      ).call
+    end
   end
 end
