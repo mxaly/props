@@ -17,11 +17,12 @@ user_ids = User.pluck(:id)
            Faker::HipsterIpsum.paragraph[0..250]
          end
   date = Random.rand(60.days.to_i).seconds.ago
-  Prop.create!(user_id: user_id,
-               propser_id: propser_id,
-               body: body,
-               created_at: date,
-               updated_at: date)
+  prop = Prop.new(propser_id: propser_id,
+                  body: body,
+                  created_at: date,
+                  updated_at: date)
+  prop.prop_receivers.build(user_id: user_id)
+  prop.save
 end
 
 puts '== Creating upvotes'
