@@ -1,6 +1,17 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+# 0.13.0 - 2015-04-09
+## Added
+
+* Ability to archive users
+* Only active users are displayed
+
+## Deleted
+
+* Props do not longer have user_id column. This was a leftover after introducing
+  multiprops feature
+
 # 0.12.0 - 2015-01-17
 ## Added
 
