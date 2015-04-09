@@ -11,12 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141207164220) do
+ActiveRecord::Schema.define(version: 20150409161244) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "easy_tokens_tokens", force: true do |t|
+  create_table "easy_tokens_tokens", force: :cascade do |t|
     t.string   "value"
     t.string   "description"
     t.string   "owner_id"
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20141207164220) do
     t.datetime "updated_at"
   end
 
-  create_table "prop_receivers", force: true do |t|
+  create_table "prop_receivers", force: :cascade do |t|
     t.integer "prop_id"
     t.integer "user_id"
   end
@@ -34,8 +34,7 @@ ActiveRecord::Schema.define(version: 20141207164220) do
   add_index "prop_receivers", ["prop_id"], name: "index_prop_receivers_on_prop_id", using: :btree
   add_index "prop_receivers", ["user_id"], name: "index_prop_receivers_on_user_id", using: :btree
 
-  create_table "props", force: true do |t|
-    t.integer  "user_id"
+  create_table "props", force: :cascade do |t|
     t.integer  "propser_id"
     t.string   "body"
     t.datetime "created_at"
@@ -44,9 +43,8 @@ ActiveRecord::Schema.define(version: 20141207164220) do
   end
 
   add_index "props", ["propser_id"], name: "index_props_on_propser_id", using: :btree
-  add_index "props", ["user_id"], name: "index_props_on_user_id", using: :btree
 
-  create_table "upvotes", force: true do |t|
+  create_table "upvotes", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "prop_id"
     t.datetime "created_at", null: false
@@ -56,7 +54,7 @@ ActiveRecord::Schema.define(version: 20141207164220) do
   add_index "upvotes", ["prop_id"], name: "index_upvotes_on_prop_id", using: :btree
   add_index "upvotes", ["user_id"], name: "index_upvotes_on_user_id", using: :btree
 
-  create_table "users", force: true do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
     t.string   "provider"
