@@ -6,6 +6,8 @@ All notable changes to this project will be documented in this file.
 
 * Ability to archive users
 * Only active users are displayed
+* Rails bumped to 4.2.1
+* Lots of gems were updated to their latest versions
 
 ## Deleted
 
