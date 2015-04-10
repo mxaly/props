@@ -19,7 +19,7 @@ describe PropsRepository do
     let(:user_ids) { "#{john.id},#{jane.id}" }
     let(:attributes) do
       {
-        body: Faker::Lorem.paragraph,
+        body: FFaker::Lorem.paragraph,
         user_ids: user_ids,
         propser_id: jack.id,
       }

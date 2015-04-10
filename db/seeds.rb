@@ -2,8 +2,8 @@ require 'ffaker'
 
 puts '== Creating users'
 20.times do
-  User.create!(name: Faker::Name.name,
-               email: Faker::Internet.email)
+  User.create!(name: FFaker::Name.name,
+               email: FFaker::Internet.email)
 end
 
 puts '== Creating props'
@@ -12,9 +12,9 @@ user_ids = User.pluck(:id)
   user_id = user_ids.sample
   propser_id = (user_ids - [user_id]).sample
   body = if [true, false].sample
-           Faker::HipsterIpsum.sentence
+           FFaker::HipsterIpsum.sentence
          else
-           Faker::HipsterIpsum.paragraph[0..250]
+           FFaker::HipsterIpsum.paragraph[0..250]
          end
   date = Random.rand(60.days.to_i).seconds.ago
   prop = Prop.new(propser_id: propser_id,
