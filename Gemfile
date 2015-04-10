@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 source 'https://rails-assets.org'
 
 ruby '2.1.5'
-gem 'rails', '4.2.0'
+gem 'rails', '4.2.1'
 
 gem 'active_model_serializers', github: 'rails-api/active_model_serializers', branch: '0-9-stable'
 gem 'attr_extras'
