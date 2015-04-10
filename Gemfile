@@ -33,7 +33,7 @@ gem 'uglifier'
 
 # deploy
 gem 'capistrano'
-gem 'rvm1-capistrano3', require: false
+gem 'capistrano-rvm'
 gem 'capistrano-rails'
 gem 'capistrano-bundler'
 gem 'capistrano-passenger'
