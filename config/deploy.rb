@@ -1,4 +1,4 @@
-lock '3.4.0'
+lock '3.3.5'
 
 set :application, 'props'
 set :repo_url,  'git://github.com/netguru/props.git'

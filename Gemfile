@@ -32,7 +32,7 @@ gem 'thin'
 gem 'uglifier'
 
 # deploy
-gem 'capistrano'
+gem 'capistrano', '3.3.5'
 gem 'rvm1-capistrano3', require: false
 gem 'capistrano-rails'
 gem 'capistrano-bundler'
