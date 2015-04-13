@@ -1,5 +1,4 @@
 source 'https://rubygems.org'
-source 'https://rails-assets.org'
 
 ruby '2.1.5'
 gem 'rails', '4.2.1'
@@ -22,7 +21,6 @@ gem 'animate-rails'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
 gem 'pg'
-gem 'rails-assets-select2'
 gem 'rollbar'
 gem 'sass-rails'
 gem 'searchlight'
@@ -37,6 +35,10 @@ gem 'rvm1-capistrano3', require: false
 gem 'capistrano-rails'
 gem 'capistrano-bundler'
 gem 'capistrano-passenger'
+
+source 'https://rails-assets.org' do
+  gem 'rails-assets-select2'
+end
 
 group :development do
   gem 'better_errors'
