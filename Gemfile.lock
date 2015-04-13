@@ -76,7 +76,7 @@ GEM
     capistrano-bundler (1.1.4)
       capistrano (~> 3.1)
       sshkit (~> 1.2)
-    capistrano-passenger (0.0.4)
+    capistrano-passenger (0.0.2)
       capistrano (~> 3.0)
     capistrano-rails (1.1.2)
       capistrano (~> 3.1)
@@ -401,7 +401,7 @@ DEPENDENCIES
   bullet
   capistrano (= 3.3.5)
   capistrano-bundler
-  capistrano-passenger
+  capistrano-passenger (= 0.0.2)
   capistrano-rails
   codeclimate-test-reporter
   coffee-rails
