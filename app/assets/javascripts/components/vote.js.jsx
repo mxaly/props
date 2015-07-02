@@ -10,7 +10,7 @@ var VoteComponent = React.createClass({
       <button className="btn btn-success" onClick={this.props.onUpvote}>+1</button>
 
     return(
-      <div className="btn-group">
+      <div className="btn-group pull-right">
         { this.props.upvotesCount > 0 ? ratingButton : null }
         { this.props.isUpvotePossible ? upvoteButton : null }
       </div>
