@@ -79,12 +79,10 @@
     onRender: ->
       @insertReceivers()
 
-    insertReceivers: ->
-      _.each @model.get('users'), (user) =>
-        @ui.propsReceivers.append(@receiverTemplate(user))
-
-    receiverTemplate: (user) ->
-      "<a class='props-receiver-avatar' href='#users/#{user.id}'><img src='#{user.avatar_url}' title='#{user.name}'/></a>"
+    insertReceivers: ->p
+      React.render(React.createElement(PropReceiversComponent,
+        users: @model.get('users')
+      ), @ui.propsReceivers[0])
 
   class List.EmptyView extends App.Views.ItemView
     template: 'props/list/templates/empty'
