@@ -21,6 +21,9 @@
 #= require_tree ./backbone/lib/controllers
 #= require_tree ./backbone/lib/components
 
+#= require react
+#= require react_ujs
+#= require components
+
 #= require_tree ./backbone/entities
 #= require_tree ./backbone/apps
-
