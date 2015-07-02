@@ -61,30 +61,6 @@
     regions:
       'form_region' : '.form-region'
 
-  class List.Prop extends App.Views.ItemView
-    template: 'props/list/templates/prop'
-    tagName: 'li'
-    className: 'list-group-item props-list-item'
-    modelEvents:
-      'change' : 'render'
-    ui:
-      propArea: '.prop-area'
-
-    serializeData: ->
-      _.extend super,
-        created_at: moment(@model.get('created_at')).fromNow()
-
-    onRender: ->
-      @renderComponent()
-
-    renderComponent: ->
-      React.render(React.createElement(PropComponent,
-        prop: @model
-      ), @ui.propArea[0])
-
-  class List.EmptyView extends App.Views.ItemView
-    template: 'props/list/templates/empty'
-
   class List.Props extends App.Views.CompositeView
     template: 'props/list/templates/props'
     childView: List.Prop

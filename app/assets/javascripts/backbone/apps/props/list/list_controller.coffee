@@ -27,9 +27,10 @@
         collection: props
 
     propsRegion: (props) ->
-      view = @getPropsView props
-      @show view,
-        region: @layout.props_region
+      React.render(React.createElement(PropsListComponent,
+        props: props
+      ), $('.props-region')[0])
+
 
     getHeaderView: ->
       users = App.request 'user:entities'
