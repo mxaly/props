@@ -1,6 +1,6 @@
 var PropComponent = React.createClass({
   upVote: function() {
-    this.props.prop.upvote()
+    this.props.prop.upvote();
   },
 
   render: function() {
