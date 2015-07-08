@@ -17,6 +17,7 @@
 
     ui:
       input: 'input'
+      usersSelect: '.users-select'
       praisedPersonAvatar: '.praised-person-avatar'
       selectedUsers: '.selected-users'
 
@@ -24,36 +25,18 @@
       @users ||= options.users
 
     onShow: ->
-      @renderSelectItems @users
-      @ui.input.on 'change', @onSelectChange
+      @renderUserSelect @users
 
-    onSelectChange: (e) =>
-      selectedUsers = @users.filter (user) ->
-        _.include e.val, String(user.get('id'))
-      return if !selectedUsers?
-      @ui.selectedUsers.html('')
+    renderUserSelect: (users) ->
+      usersData = users.map (user) ->
+        { value: user.get('id'), label: user.get('name')}
 
-      _.each selectedUsers.reverse(), (u) =>
-        @ui.selectedUsers.append(@userBigTemplate(u))
-
-    renderSelectItems: (users) ->
-      users_data = users.map (user) ->
-        { id: user.get('id'), text: user.get('name' ), avatar_url: user.get('avatar_url')}
-
-      @ui.input.select2
+      React.render(React.createElement(Select,
+        name: 'user_ids'
+        options: usersData
+        multi: true
         placeholder: 'Who do you want to prop?'
-        allowClear: true
-        dropdownAutoWidth: true
-        multiple: true
-        data: users_data
-        width: 'resolve'
-        formatResult: @userSmallTemplate
-
-    userSmallTemplate: (user) ->
-      "<img class='user-small-face' src='" + user.avatar_url + "'/>" + user.text
-
-    userBigTemplate: (user) ->
-      "<img class='praised-person-avatar' src='" + user.get('avatar_url') + "'/>"
+      ), @ui.usersSelect[0])
 
   class List.Header extends App.Views.Layout
     template: 'props/list/templates/header'
