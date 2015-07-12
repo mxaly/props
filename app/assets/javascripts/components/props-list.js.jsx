@@ -2,9 +2,9 @@ var PropsListComponent = React.createClass({
 
   componentWillMount: function() {
     var list = this.props.props;
-    list.bind('change', this.onChange);
-    list.bind('add', this.onChange);
-    list.bind('remove', this.onChange);
+    list.bind('change', this.resetState);
+    list.bind('add', this.resetState);
+    list.bind('remove', this.resetState);
     return this.setState({
       currentPage: list.state.currentPage,
       list: list
@@ -27,12 +27,8 @@ var PropsListComponent = React.createClass({
     e.preventDefault();
     var _this = this;
     this.state.list.getPreviousPage({
-      success: _this.resetState.bind(_this)
+      success: _this.resetState
     });
-  },
-
-  onChange: function() {
-    this.setState(this.props.props);
   },
 
   render: function() {
