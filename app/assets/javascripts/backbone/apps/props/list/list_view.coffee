@@ -7,39 +7,22 @@
       'header_region' : '.header-region'
     className: 'col-xs-12'
 
-  class List.Form extends App.Views.ItemView
-    template: 'props/list/templates/form'
-
-    form:
-      buttons:
-        primary: 'Prop!'
-        cancel: false
-
+  class List.Header extends App.Views.ItemView
+    template: 'props/list/templates/header'
     ui:
-      input: 'input'
-      usersSelect: '.users-select'
-      praisedPersonAvatar: '.praised-person-avatar'
-      selectedUsers: '.selected-users'
+      newPropArea: '.new-prop-area'
 
     initialize: (options) ->
       @users ||= options.users
 
     onShow: ->
-      @renderUserSelect @users
+      @renderNewPropForm(@users, @model)
 
-    renderUserSelect: (users) ->
+    renderNewPropForm: (users, prop) ->
       usersData = users.map (user) ->
         { value: user.get('id'), label: user.get('name')}
 
-      React.render(React.createElement(Select,
-        name: 'user_ids'
-        options: usersData
-        multi: true
-        placeholder: 'Who do you want to prop?'
-      ), @ui.usersSelect[0])
-
-  class List.Header extends App.Views.Layout
-    template: 'props/list/templates/header'
-    className: 'jumbotron clearfix'
-    regions:
-      'form_region' : '.form-region'
+      React.render(React.createElement(NewPropFormComponent,
+        users: users
+        model: @model
+      ), @ui.newPropArea[0])

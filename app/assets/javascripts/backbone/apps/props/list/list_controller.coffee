@@ -12,7 +12,7 @@
         props.add prop
 
       @listenTo @layout, 'show', ->
-        @headerRegion() if show_header
+        @headerRegion(props) if show_header
         @propsRegion props
 
       @show @layout,
@@ -32,38 +32,19 @@
       ), $('.props-region')[0])
 
 
-    getHeaderView: ->
+    getHeaderView: (props) ->
       users = App.request 'user:entities'
-      view = new List.Header
-
-      @listenTo view, 'show', ->
-        @formRegion view.form_region, users
-
-      @listenTo App.vent, 'prop:created', (prop) ->
-        @formRegion view.form_region, users
-
-      view
-
-    getFormView: (users) ->
       prop = App.request 'new:prop:entity'
-
-      @listenTo prop, 'created', (model) ->
-        App.vent.trigger 'prop:created', model
-
-      new List.Form
+      view = new List.Header
         model: prop
         users: users
 
-    formRegion: (region, users) ->
-      view = @getFormView users
-      form_view = App.request 'form:component', view
+      @listenTo prop, 'created', ->
+        @headerRegion users
+        props.fetch()
+      view
 
-      @show form_view,
-        region: region
-        loading:
-          entities: users
-
-    headerRegion: ->
-      view = @getHeaderView()
+    headerRegion: (users) ->
+      view = @getHeaderView users
       @show view,
         region: @layout.header_region
