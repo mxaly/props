@@ -13,6 +13,7 @@ module Props
   class Application < Rails::Application
 
     # don't generate RSpec tests for views and helpers
+    config.react.addons = true
     config.generators do |g|
 
       g.test_framework :rspec, fixture: true
