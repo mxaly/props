@@ -3,6 +3,8 @@ var PropsListComponent = React.createClass({
   componentWillMount: function() {
     var list = this.props.props;
     list.bind('change', this.onChange);
+    list.bind('add', this.onChange);
+    list.bind('remove', this.onChange);
     return this.setState({
       currentPage: list.state.currentPage,
       list: list
