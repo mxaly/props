@@ -3,41 +3,20 @@
   class List.Controller extends App.Controllers.Application
 
     initialize: (options) ->
-      { @props, show_header } = options
-      @props ||= App.request 'prop:entities'
+      { props, show_header } = options
+      props ||= App.request 'prop:entities'
+      users = App.request 'user:entities'
 
-      @layout = @getLayoutView()
-
-      @listenTo App.vent, 'prop:created', (prop) ->
-        props.add prop
+      @layout = new List.Layout
 
       @listenTo @layout, 'show', ->
-        @headerRegion() if show_header
-        @propsRegion @props
+        @propsRegion props, users, show_header
 
-      @show @layout,
-        loading:
-          entities: @props
+      @show @layout
 
-    getLayoutView: ->
-      new List.Layout
-
-    getPropsView: (props) ->
-      new List.Props
-        collection: props
-
-    propsRegion: (props) ->
-      React.render(React.createElement(PropsListComponent,
+    propsRegion: (props, users, show_header) ->
+      React.render(React.createElement(PropsPageComponent,
         props: props
-      ), $('.props-region')[0])
-
-    refetechProps: =>
-      @props.fetch()
-
-    headerRegion: ->
-      users = App.request 'user:entities'
-      prop = App.request 'new:prop:entity'
-      component = React.render(React.createElement(NewPropFormComponent,
         users: users
-        onPropCreated: @refetechProps
-      ), $('.header-region')[0])
+        showForm: show_header
+      ), $('.props-region')[0])
