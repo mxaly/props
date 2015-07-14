@@ -31,20 +31,15 @@
         props: props
       ), $('.props-region')[0])
 
-
-    getHeaderView: (props) ->
+    headerRegion: (props) ->
       users = App.request 'user:entities'
       prop = App.request 'new:prop:entity'
-      view = new List.Header
-        model: prop
+      component = React.render(React.createElement(NewPropFormComponent,
         users: users
+        model: prop
+      ), $('.header-region')[0])
 
-      @listenTo prop, 'created', ->
-        @headerRegion users
+      @listenTo prop, 'created', =>
         props.fetch()
-      view
-
-    headerRegion: (users) ->
-      view = @getHeaderView users
-      @show view,
-        region: @layout.header_region
+        React.unmountComponentAtNode($('.header-region')[0])
+        @headerRegion(props)
