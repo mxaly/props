@@ -16,11 +16,19 @@ var NewPropFormComponent = React.createClass({
   },
 
   onUsersChange: function(values){
+    this.resetErrors('user_ids');
     this.setState({selectedUserIds: values});
   },
 
   onBodyChange: function(e){
+    this.resetErrors('body');
     this.setState({body: e.target.value});
+  },
+
+  resetErrors: function(key){
+    var errors = this.state.errors;
+    errors[key] = null;
+    this.setState({errors: errors});
   },
 
   onPropClick: function(){
