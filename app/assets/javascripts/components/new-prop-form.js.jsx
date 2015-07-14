@@ -8,7 +8,7 @@ var NewPropFormComponent = React.createClass({
   componentWillMount: function(){
     var users = this.props.users;
     users.bind('sync', this.onUsersSync);
-    this.setState({ users: users});
+    this.setState({users: users});
   },
 
   onUsersSync: function(){
@@ -36,7 +36,7 @@ var NewPropFormComponent = React.createClass({
 
   mappedUsers: function(users) {
     return users.map(function(user){
-      return { value: user.id, label: user.get('name')};
+      return {value: user.id, label: user.get('name')};
     });
   },
 
@@ -68,7 +68,12 @@ var NewPropFormComponent = React.createClass({
           />
         </InputWrapperComponent>
         <InputWrapperComponent errors={this.state.errors.body}>
-          <textarea className="form-control" rows="2" placeholder="What do you want to thank for?" value={this.state.body} onChange={this.onBodyChange}/>
+          <textarea
+            className="form-control"
+            rows="2"
+            placeholder="What do you want to thank for?"
+            value={this.state.body}
+            onChange={this.onBodyChange}/>
         </InputWrapperComponent>
         <button className="btn btn-primary" onClick={this.onPropClick}>Prop</button>
       </div>
