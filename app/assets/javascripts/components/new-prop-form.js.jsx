@@ -34,9 +34,14 @@ var NewPropFormComponent = React.createClass({
   onPropClick: function(){
     // when using flux, this should only fire an action but since we have bacbkone,
     // we need to handle save ant it's errors here.
-    this.props.model.set({user_ids: this.state.selectedUserIds, body: this.state.body})
-    this.props.model.save(null, {
-      error: function (prop, error){
+    var prop = new Props.Entities.Prop;
+    prop.set({user_ids: this.state.selectedUserIds, body: this.state.body})
+    prop.save(null, {
+      success: function() {
+        this.setState(this.getInitialState());
+        this.props.onPropCreated();
+      }.bind(this),
+      error: function(prop, error){
         this.setState({errors: error.responseJSON.errors});
       }.bind(this)
     });

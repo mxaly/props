@@ -3,8 +3,8 @@
   class List.Controller extends App.Controllers.Application
 
     initialize: (options) ->
-      { props, show_header } = options
-      props ||= App.request 'prop:entities'
+      { @props, show_header } = options
+      @props ||= App.request 'prop:entities'
 
       @layout = @getLayoutView()
 
@@ -12,12 +12,12 @@
         props.add prop
 
       @listenTo @layout, 'show', ->
-        @headerRegion(props) if show_header
-        @propsRegion props
+        @headerRegion() if show_header
+        @propsRegion @props
 
       @show @layout,
         loading:
-          entities: props
+          entities: @props
 
     getLayoutView: ->
       new List.Layout
@@ -31,15 +31,13 @@
         props: props
       ), $('.props-region')[0])
 
-    headerRegion: (props) ->
+    refetechProps: =>
+      @props.fetch()
+
+    headerRegion: ->
       users = App.request 'user:entities'
       prop = App.request 'new:prop:entity'
       component = React.render(React.createElement(NewPropFormComponent,
         users: users
-        model: prop
+        onPropCreated: @refetechProps
       ), $('.header-region')[0])
-
-      @listenTo prop, 'created', =>
-        props.fetch()
-        React.unmountComponentAtNode($('.header-region')[0])
-        @headerRegion(props)
