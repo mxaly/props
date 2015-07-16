@@ -1,3 +1,5 @@
+var React = require("react");
+
 var VoteComponent = React.createClass({
   render: function() {
     var ratingButton =
@@ -17,3 +19,5 @@ var VoteComponent = React.createClass({
     )
   }
 });
+
+module.exports = VoteComponent;

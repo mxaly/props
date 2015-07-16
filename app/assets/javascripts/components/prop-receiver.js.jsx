@@ -1,3 +1,5 @@
+var React = require("react");
+
 var PropReceiverComponent = React.createClass({
   render: function() {
     return (
@@ -7,3 +9,5 @@ var PropReceiverComponent = React.createClass({
     );
   }
 });
+
+module.exports = PropReceiverComponent;

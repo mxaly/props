@@ -1,3 +1,5 @@
+var React = require("react");
+
 var PaginationComponent = React.createClass({
   render: function() {
     var prevButton =
@@ -23,3 +25,5 @@ var PaginationComponent = React.createClass({
     );
   }
 });
+
+module.exports = PaginationComponent;

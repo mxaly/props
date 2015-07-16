@@ -1,3 +1,7 @@
+var React = require("react");
+var PropReceiversComponent = require("./prop-receivers");
+var VoteComponent = require("./vote");
+
 var PropComponent = React.createClass({
   upVote: function() {
     this.props.prop.upvote();
@@ -37,3 +41,5 @@ var PropComponent = React.createClass({
     </div>
   )}
 });
+
+module.exports = PropComponent;

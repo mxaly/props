@@ -1,3 +1,7 @@
+var React = require("react");
+var NewPropFormComponent = require("./new-prop-form");
+var PropsListComponent = require("./props-list");
+
 var PropsPageComponent = React.createClass({
   onPropCreated: function() {
     this.props.props.fetch();
@@ -12,3 +16,5 @@ var PropsPageComponent = React.createClass({
     )
   }
 });
+
+module.exports = PropsPageComponent;

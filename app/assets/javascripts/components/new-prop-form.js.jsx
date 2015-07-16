@@ -1,6 +1,8 @@
-var NewPropFormComponent = React.createClass({
-  mixins: [React.addons.LinkedStateMixin],
+var React = require("react");
+var InputWrapperComponent = require("./input-wrapper");
+var Select = require("react-select");
 
+var NewPropFormComponent = React.createClass({
   getInitialState: function(){
     return {body: '', selectedUserIds: '', errors: {}};
   },
@@ -92,3 +94,5 @@ var NewPropFormComponent = React.createClass({
       </div>
   )}
 });
+
+module.exports = NewPropFormComponent;

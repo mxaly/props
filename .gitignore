@@ -80,3 +80,6 @@ pickle-email-*.html
 config/config.yml
 config/sec_config.yml
 tags
+
+# Ignore node modules
+node_modules

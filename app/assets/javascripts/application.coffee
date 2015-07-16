@@ -7,7 +7,6 @@
 #= require js_stack/base/jsroutes
 #= require js_stack/plugins/moment
 #= require js_stack/plugins/backbone.paginator
-#= require select2
 #= require bootstrap
 
 #= require_tree ./libs
@@ -21,9 +20,6 @@
 #= require_tree ./backbone/lib/controllers
 #= require_tree ./backbone/lib/components
 
-#= require react
-#= require react_ujs
-#= require_tree ./vendor
 #= require components
 
 #= require_tree ./backbone/entities

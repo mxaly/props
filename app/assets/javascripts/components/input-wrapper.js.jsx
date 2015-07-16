@@ -1,7 +1,9 @@
+var React = require("react");
+var classNames = require('classnames');
+
 var InputWrapperComponent = React.createClass({
   render: function() {
-    var cx = React.addons.classSet;
-    var classes = cx({
+    var classes = classNames({
       'form-group': true,
       'has-error': !!this.props.errors
     });
@@ -20,3 +22,5 @@ var InputWrapperComponent = React.createClass({
       </div>
   )}
 });
+
+module.exports = InputWrapperComponent;

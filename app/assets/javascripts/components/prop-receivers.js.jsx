@@ -1,3 +1,6 @@
+var React = require("react");
+var PropReceiverComponent = require("./prop-receiver");
+
 var PropReceiversComponent = React.createClass({
   render: function() {
     var list = this.props.users.map(function(item){
@@ -10,3 +13,5 @@ var PropReceiversComponent = React.createClass({
     );
   }
 });
+
+module.exports = PropReceiversComponent;

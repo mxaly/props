@@ -28,7 +28,7 @@ gem 'sendgrid'
 gem 'slack-notifier'
 gem 'thin'
 gem 'uglifier'
-gem 'react-rails', '~> 1.0'
+gem 'browserify-rails', '~> 1.1.0'
 
 # deploy
 gem 'capistrano', '3.3.5'

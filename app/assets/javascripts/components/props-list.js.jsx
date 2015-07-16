@@ -1,3 +1,7 @@
+var React = require("react");
+var PropComponent = require("./prop");
+var PaginationComponent = require("./pagination");
+
 var PropsListComponent = React.createClass({
 
   componentWillMount: function() {
@@ -49,3 +53,5 @@ var PropsListComponent = React.createClass({
     )
   }
 });
+
+module.exports = PropsListComponent;
