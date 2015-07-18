@@ -1,26 +1,27 @@
-var React = require("react");
-var classNames = require('classnames');
+import React from 'react';
+import classNames from 'classnames';
 
-var InputWrapperComponent = React.createClass({
-  render: function() {
-    var classes = classNames({
+export default React.createClass({
+  propTypes: {
+    errors: React.PropTypes.array,
+    children: React.PropTypes.object.isRequired,
+  },
+
+  render() {
+    const classes = classNames({
       'form-group': true,
-      'has-error': !!this.props.errors
+      'has-error': !!this.props.errors,
     });
-    var errors = this.props.errors;
-    var errorsList = errors ? errors.map(function(error){
-      return(
-        <span className="help-block error" key={error}>
-          {error}
-        </span>
-      )
+    const errors = this.props.errors;
+    const errorsList = errors ? errors.map((error) => {
+      return (<span className="help-block error" key={error}>{error}</span>);
     }) : null;
-    return(
+
+    return (
       <div className={classes}>
         {this.props.children}
         {errorsList}
       </div>
-  )}
+    );
+  },
 });
-
-module.exports = InputWrapperComponent;

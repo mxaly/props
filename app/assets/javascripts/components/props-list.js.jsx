@@ -1,46 +1,50 @@
-var React = require("react");
-var PropComponent = require("./prop");
-var PaginationComponent = require("./pagination");
+import React from 'react';
+import PropComponent from './prop';
+import PaginationComponent from './pagination';
 
-var PropsListComponent = React.createClass({
+export default React.createClass({
+  propTypes: {
+    props: React.PropTypes.object.isRequired,
+  },
 
-  componentWillMount: function() {
-    var list = this.props.props;
-    list.bind('change', this.resetState);
-    list.bind('add', this.resetState);
-    list.bind('remove', this.resetState);
+  componentWillMount() {
+    const list = this.props.props;
+    list.bind('change', this.onResetState);
+    list.bind('add', this.onResetState);
+    list.bind('remove', this.onResetState);
     return this.setState({
       currentPage: list.state.currentPage,
-      list: list
+      list: list,
     });
   },
 
-  resetState: function(){
+  onResetState() {
     this.setState({list: this.state.list});
   },
 
-  onNextPage: function(e) {
+  onNextPage(e) {
     e.preventDefault();
-    var _this = this;
+    const _this = this;
     this.state.list.getNextPage({
-      success: _this.resetState
+      success: _this.resetState,
     });
   },
 
-  onPrevPage: function(e) {
+  onPrevPage(e) {
     e.preventDefault();
-    var _this = this;
+    const _this = this;
     this.state.list.getPreviousPage({
-      success: _this.resetState
+      success: _this.resetState,
     });
   },
 
-  render: function() {
-    var list = this.state.list.map(function(item){
-      return <PropComponent prop={item} key={item.id}/>
+  render() {
+    const list = this.state.list.map((item) => {
+      return <PropComponent prop={item} key={item.id}/>;
     });
-    var emptyView = "no props here";
-    return(
+    const emptyView = 'no props here';
+
+    return (
       <div>
         <div>{list.length > 0 ? list : emptyView}</div>
         <PaginationComponent
@@ -50,8 +54,6 @@ var PropsListComponent = React.createClass({
           hasPreviousPage={this.state.list.hasPreviousPage()}
           hasNextPage={this.state.list.hasNextPage()}/>
       </div>
-    )
-  }
+    );
+  },
 });
-
-module.exports = PropsListComponent;
