@@ -1,12 +1,6 @@
 import React from 'react';
 
-export default React.createClass({
-  propTypes: {
-    onUpvote: React.PropTypes.func.isRequired,
-    upvotesCount: React.PropTypes.number.isRequired,
-    isUpvotePossible: React.PropTypes.bool.isRequired,
-  },
-
+class Vote extends React.Component {
   render() {
     const ratingButton = (
       <button className="btn btn-default" disabled>
@@ -27,5 +21,13 @@ export default React.createClass({
         { this.props.isUpvotePossible ? upvoteButton : null }
       </div>
     );
-  },
-});
+  }
+}
+
+Vote.propTypes = {
+  onUpvote: React.PropTypes.func.isRequired,
+  upvotesCount: React.PropTypes.number.isRequired,
+  isUpvotePossible: React.PropTypes.bool.isRequired,
+};
+
+export default Vote;

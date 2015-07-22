@@ -1,14 +1,6 @@
 import React from 'react';
 
-export default React.createClass({
-  propTypes: {
-    currentPage: React.PropTypes.number.isRequired,
-    hasNextPage: React.PropTypes.bool.isRequired,
-    hasPreviousPage: React.PropTypes.bool.isRequired,
-    onPrevPageClick: React.PropTypes.func.isRequired,
-    onNextPageClick: React.PropTypes.func.isRequired,
-  },
-
+class Pagination extends React.Component {
   render() {
     const prevButton = (
       <a className="previous-page" href="#"
@@ -30,5 +22,15 @@ export default React.createClass({
         </nav>
       </div>
     );
-  },
-});
+  }
+}
+
+Pagination.propTypes = {
+  currentPage: React.PropTypes.number.isRequired,
+  hasNextPage: React.PropTypes.bool.isRequired,
+  hasPreviousPage: React.PropTypes.bool.isRequired,
+  onPrevPageClick: React.PropTypes.func.isRequired,
+  onNextPageClick: React.PropTypes.func.isRequired,
+};
+
+export default Pagination;

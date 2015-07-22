@@ -2,25 +2,27 @@ import React from 'react';
 import PropComponent from './prop';
 import PaginationComponent from './pagination';
 
-export default React.createClass({
-  propTypes: {
-    props: React.PropTypes.object.isRequired,
-  },
+class PropsList extends React.Component {
+  constructor(props) {
+    super(props);
+    this.onResetState = this.onResetState.bind(this);
+    this.onNextPage = this.onNextPage.bind(this);
+    this.onPrevPage = this.onPrevPage.bind(this);
 
-  componentWillMount() {
     const list = this.props.props;
     list.bind('change', this.onResetState);
     list.bind('add', this.onResetState);
     list.bind('remove', this.onResetState);
-    return this.setState({
+
+    this.state = {
       currentPage: list.state.currentPage,
       list: list,
-    });
-  },
+    };
+  }
 
   onResetState() {
     this.setState({list: this.state.list});
-  },
+  }
 
   onNextPage(e) {
     e.preventDefault();
@@ -28,7 +30,7 @@ export default React.createClass({
     this.state.list.getNextPage({
       success: _this.resetState,
     });
-  },
+  }
 
   onPrevPage(e) {
     e.preventDefault();
@@ -36,7 +38,7 @@ export default React.createClass({
     this.state.list.getPreviousPage({
       success: _this.resetState,
     });
-  },
+  }
 
   render() {
     const list = this.state.list.map((item) => {
@@ -55,5 +57,11 @@ export default React.createClass({
           hasNextPage={this.state.list.hasNextPage()}/>
       </div>
     );
-  },
-});
+  }
+}
+
+PropsList.propTypes = {
+  props: React.PropTypes.object.isRequired,
+};
+
+export default PropsList;

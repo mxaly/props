@@ -1,10 +1,6 @@
 import React from 'react';
 
-export default React.createClass({
-  propTypes: {
-    user: React.PropTypes.object.isRequired,
-  },
-
+class PropReceiver extends React.Component {
   render() {
     const reveiverUrl = `#users/${this.props.user.id}`;
     return (
@@ -12,5 +8,11 @@ export default React.createClass({
         <img src={this.props.user.avatar_url} title={this.props.user.name}/>
       </a>
     );
-  },
-});
+  }
+}
+
+PropReceiver.propTypes = {
+  user: React.PropTypes.object.isRequired,
+};
+
+export default PropReceiver;

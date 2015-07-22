@@ -3,14 +3,15 @@ import PropReceiversComponent from './prop-receivers';
 import VoteComponent from './vote';
 import moment from 'moment';
 
-export default React.createClass({
-  propTypes: {
-    prop: React.PropTypes.object.isRequired,
-  },
+class Prop extends React.Component {
+  constructor(props) {
+    super(props);
+    this.onUpVote = this.onUpVote.bind(this);
+  }
 
   onUpVote() {
     this.props.prop.upvote();
-  },
+  }
 
   render() {
     const propser = this.props.prop.get('propser');
@@ -46,5 +47,11 @@ export default React.createClass({
         </div>
       </div>
     );
-  },
-});
+  }
+}
+
+Prop.propTypes = {
+  prop: React.PropTypes.object.isRequired,
+};
+
+export default Prop;

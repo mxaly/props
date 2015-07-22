@@ -1,12 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 
-export default React.createClass({
-  propTypes: {
-    errors: React.PropTypes.array,
-    children: React.PropTypes.object.isRequired,
-  },
-
+class InputWrapper extends React.Component {
   render() {
     const classes = classNames({
       'form-group': true,
@@ -23,5 +18,12 @@ export default React.createClass({
         {errorsList}
       </div>
     );
-  },
-});
+  }
+}
+
+InputWrapper.propTypes = {
+  errors: React.PropTypes.array,
+  children: React.PropTypes.object.isRequired,
+};
+
+export default InputWrapper;
