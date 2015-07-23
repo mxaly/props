@@ -10,8 +10,8 @@ class Vote extends React.Component {
     );
 
     const upvoteButton = (
-      <button className="btn btn-success" onClick={this.props.onUpvote}>
-        +1
+      <button className="btn btn-success" onClick={this.props.onUpvote} disabled={this.props.upVoting}>
+        {this.props.upVoting ? 'upvoting...' : '+1'}
       </button>
     );
 
@@ -28,6 +28,7 @@ Vote.propTypes = {
   onUpvote: React.PropTypes.func.isRequired,
   upvotesCount: React.PropTypes.number.isRequired,
   isUpvotePossible: React.PropTypes.bool.isRequired,
+  upVoting: React.PropTypes.bool,
 };
 
 export default Vote;
