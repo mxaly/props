@@ -1,29 +1,52 @@
 import React from 'react';
 import NewPropFormComponent from './new-prop-form';
 import PropsListComponent from './props-list';
+import PropsStore from './../flux/props-store';
+import Actions from './../flux/props-actions';
 
 class PropsPage extends React.Component {
   constructor(props) {
     super(props);
-    this.onPropCreated = this.onPropCreated.bind(this);
+    this.onChange = this.onChange.bind(this);
+    this.onNextPage = this.onNextPage.bind(this);
+    this.onPrevPage = this.onPrevPage.bind(this);
+
+    this.state = PropsStore.getState();
   }
 
-  onPropCreated() {
-    this.props.props.fetch();
+  componentDidMount() {
+    PropsStore.listen(this.onChange);
+    Actions.fetch(1);
+  }
+
+  componentWillUnmount() {
+    PropsStore.unlisten(this.onChange);
+  }
+
+  onChange() {
+    this.setState(PropsStore.getState());
+  }
+
+  onNextPage() {
+    Actions.fetch(this.state.meta.nextPage);
+  }
+
+  onPrevPage() {
+    Actions.fetch(this.state.meta.prevPage);
   }
 
   render() {
     const form = (
-      <NewPropFormComponent
-        users={this.props.users}
-        onPropCreated={this.onPropCreated}
-      />
+      <NewPropFormComponent/>
     );
-
     return (
       <div>
         {this.props.showForm ? form : null}
-        <PropsListComponent props={this.props.props}/>
+        <PropsListComponent
+          props={this.state.props}
+          meta={this.state.meta}
+          onNextPage={this.onNextPage}
+          onPrevPage={this.onPrevPage}/>
       </div>
     );
   }

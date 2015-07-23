@@ -2,6 +2,7 @@ import React from 'react';
 import PropReceiversComponent from './prop-receivers';
 import VoteComponent from './vote';
 import moment from 'moment';
+import Actions from './../flux/props-actions';
 
 class Prop extends React.Component {
   constructor(props) {
@@ -10,14 +11,14 @@ class Prop extends React.Component {
   }
 
   onUpVote() {
-    this.props.prop.upvote();
+    Actions.upVote(this.props.prop);
   }
 
   render() {
-    const propser = this.props.prop.get('propser');
+    const propser = this.props.prop.propser;
     const propserUrl = `#users/${propser ? propser.id : ''}`;
-    const propserAvatar = propser ? propser.avatar_url : '';
-    const createdAt = moment(this.props.prop.get('created_at')).fromNow();
+    const propserAvatar = propser ? propser.avatarUrl : '';
+    const createdAt = moment(this.props.prop.created_at).fromNow();
 
     return (
       <div className="row list-group-item props-list-item">
@@ -26,10 +27,10 @@ class Prop extends React.Component {
             <img src= {propserAvatar}></img>
           </a>
           <i className="glyphicon glyphicon-chevron-right prop-to"></i>
-          <PropReceiversComponent users={this.props.prop.get('users')}/>
+          <PropReceiversComponent users={this.props.prop.users}/>
           <div className="col-xs-12 prop-content">
             <p className="lead prop-body">
-              {this.props.prop.get('body')}
+              {this.props.prop.body}
             </p>
             <div className="row">
               <div className="col-xs-12 prop-footer">
@@ -37,9 +38,10 @@ class Prop extends React.Component {
                   {createdAt}
                 </div>
                 <VoteComponent
-                  upvotesCount={this.props.prop.get('upvotes_count')}
-                  isUpvotePossible={this.props.prop.get('is_upvote_possible')}
+                  upvotesCount={this.props.prop.upvotesCount}
+                  isUpvotePossible={this.props.prop.isUpvotePossible}
                   onUpvote={this.onUpVote}
+                  upVoting={this.props.prop.upVoting}
                 />
               </div>
             </div>
