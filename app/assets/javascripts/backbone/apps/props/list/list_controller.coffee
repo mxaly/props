@@ -3,20 +3,16 @@
   class List.Controller extends App.Controllers.Application
 
     initialize: (options) ->
-      { props, show_header } = options
-      props ||= App.request 'prop:entities'
-      users = App.request 'user:entities'
+      { show_header } = options
 
       @layout = new List.Layout
 
       @listenTo @layout, 'show', ->
-        @propsRegion props, users, show_header
+        @propsRegion show_header
 
       @show @layout
 
-    propsRegion: (props, users, show_header) ->
+    propsRegion: (show_header) ->
       React.render(React.createElement(PropsPageComponent,
-        props: props
-        users: users
         showForm: show_header
       ), $('.props-region')[0])
