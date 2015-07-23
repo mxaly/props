@@ -1,6 +1,10 @@
 import React from 'react';
 import InputWrapperComponent from './input-wrapper';
 import Select from 'react-select';
+import UserOption from './prop-user-option';
+import Actions from './../flux/props-actions';
+import FormStore from './../flux/prop-form-store';
+import _ from 'lodash';
 
 class NewPropForm extends React.Component {
   constructor(props) {
@@ -11,14 +15,21 @@ class NewPropForm extends React.Component {
     this.onBodyChange = this.onBodyChange.bind(this);
     this.onPropClick = this.onPropClick.bind(this);
 
-    props.users.bind('sync', this.onUsersSync);
+    this.onChange = this.onChange.bind(this);
+    this.state = FormStore.getState();
+  }
 
-    this.state = {
-      body: '',
-      selectedUserIds: '',
-      errors: {},
-      users: props.users,
-    };
+  componentDidMount() {
+    FormStore.listen(this.onChange);
+    Actions.fetchUsers();
+  }
+
+  componentWillUnmount() {
+    FormStore.unlisten(this.onChange);
+  }
+
+  onChange() {
+    this.setState(FormStore.getState());
   }
 
   onUsersSync() {
@@ -26,7 +37,7 @@ class NewPropForm extends React.Component {
   }
 
   onUsersChange(values) {
-    this.onResetErrors('user_ids');
+    this.onResetErrors('userIds');
     this.setState({selectedUserIds: values});
   }
 
@@ -36,17 +47,8 @@ class NewPropForm extends React.Component {
   }
 
   onPropClick() {
-    const prop = new Props.Entities.Prop;
-    prop.set({user_ids: this.state.selectedUserIds, body: this.state.body});
-    prop.save(null, {
-      success: () => {
-        this.setState({body: '', selectedUserIds: '', errors: {}});
-        this.props.onPropCreated();
-      },
-      error: (_, error) => {
-        this.setState({errors: error.responseJSON.errors});
-      },
-    });
+    const prop = {selectedUserIds: this.state.selectedUserIds, body: this.state.body};
+    Actions.create(prop);
   }
 
   onResetErrors(key) {
@@ -57,7 +59,7 @@ class NewPropForm extends React.Component {
 
   getMappedUsers(users) {
     return users.map((user) => {
-      return {value: user.id, label: user.get('name')};
+      return {value: user.id, label: user.name, avatarUrl: user.avatarUrl};
     });
   }
 
@@ -65,20 +67,25 @@ class NewPropForm extends React.Component {
     const ids = this.state.selectedUserIds;
     if (ids.length > 0) {
       return ids.split(',').map((userId) => {
-        return this.state.users._byId[userId];
+        const user = _.findWhere(this.state.users, {id: parseInt(userId, 10)});
+        console.log(user);
+        return user;
       });
     }
+
     return [];
   }
 
   render() {
-    const usersData = this.getMappedUsers(this.props.users);
+    const usersData = this.getMappedUsers(this.state.users);
     const selectedUsers = this.getMappedUsers(this.getSelectedUsers());
+    const propLabel = this.state.creating ? 'Propsing...' : 'Prop';
 
     return (
       <div className="jumbotron clearfix">
-        <InputWrapperComponent errors={this.state.errors.user_ids}>
+        <InputWrapperComponent errors={this.state.errors.userIds}>
           <Select
+            optionComponent={UserOption}
             name="user_ids"
             options={usersData}
             multi={true}
@@ -98,7 +105,8 @@ class NewPropForm extends React.Component {
         <button
           className="btn btn-primary"
           onClick={this.onPropClick}
-        >Prop</button>
+          disabled={this.state.creating}
+        >{{propLabel}}</button>
       </div>
     );
   }
