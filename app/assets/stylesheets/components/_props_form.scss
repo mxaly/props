@@ -6,4 +6,9 @@
 .user-small-face {
   max-width: 30px;
   margin-right: 10px;
+
+  &__value {
+    max-width: 20px;
+    margin-right: 10px;
+  }
 }
