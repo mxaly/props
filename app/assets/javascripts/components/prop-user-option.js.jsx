@@ -20,13 +20,13 @@ class Option extends React.Component {
 }
 
 Option.propTypes = {
-  addLabelText: React.PropTypes.string,
-  className: React.PropTypes.string,
-  mouseDown: React.PropTypes.func,
-  mouseEnter: React.PropTypes.func,
-  mouseLeave: React.PropTypes.func,
-  option: React.PropTypes.object.isRequired,
-  renderFunc: React.PropTypes.func,
+  addLabelText: React.PropTypes.string,               // string rendered in case of allowCreate option passed to ReactSelect
+  className: React.PropTypes.string,                  // className (based on mouse position)
+  mouseDown: React.PropTypes.func,                    // method to handle click on option element
+  mouseEnter: React.PropTypes.func,                   // method to handle mouseEnter on option element
+  mouseLeave: React.PropTypes.func,                   // method to handle mouseLeave on option element
+  option: React.PropTypes.object.isRequired,          // object that is base for that option
+  renderFunc: React.PropTypes.func                    // method passed to ReactSelect component to render label text
 };
 
 export default Option;
