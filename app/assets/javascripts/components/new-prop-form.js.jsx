@@ -2,6 +2,7 @@ import React from 'react';
 import InputWrapperComponent from './input-wrapper';
 import Select from 'react-select';
 import UserOption from './prop-user-option';
+import UserValue from './prop-user-value';
 import Actions from './../flux/props-actions';
 import FormStore from './../flux/prop-form-store';
 import _ from 'lodash';
@@ -68,7 +69,6 @@ class NewPropForm extends React.Component {
     if (ids.length > 0) {
       return ids.split(',').map((userId) => {
         const user = _.findWhere(this.state.users, {id: parseInt(userId, 10)});
-        console.log(user);
         return user;
       });
     }
@@ -86,6 +86,7 @@ class NewPropForm extends React.Component {
         <InputWrapperComponent errors={this.state.errors.userIds}>
           <Select
             optionComponent={UserOption}
+            valueComponent={UserValue}
             name="user_ids"
             options={usersData}
             multi={true}
