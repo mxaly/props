@@ -4,8 +4,7 @@ class Vote extends React.Component {
   render() {
     const ratingButton = (
       <button className="btn btn-default" disabled>
-        Rating +
-        {this.props.upvotesCount}
+        Rating + {this.props.upvotesCount}
       </button>
     );
 

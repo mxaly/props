@@ -1,17 +1,18 @@
 import React from 'react';
-import InputWrapperComponent from './input-wrapper';
+import _ from 'lodash';
 import Select from 'react-select';
+
+import InputWrapperComponent from './../shared/input-wrapper';
 import UserOption from './prop-user-option';
 import UserValue from './prop-user-value';
-import Actions from './../flux/props-actions';
-import FormStore from './../flux/prop-form-store';
-import _ from 'lodash';
+
+import Actions from './../../flux/props-actions';
+import FormStore from './../../flux/prop-form-store';
 
 class NewPropForm extends React.Component {
   constructor(props) {
     super(props);
 
-    this.onUsersSync = this.onUsersSync.bind(this);
     this.onUsersChange = this.onUsersChange.bind(this);
     this.onBodyChange = this.onBodyChange.bind(this);
     this.onPropClick = this.onPropClick.bind(this);
@@ -31,10 +32,6 @@ class NewPropForm extends React.Component {
 
   onChange() {
     this.setState(FormStore.getState());
-  }
-
-  onUsersSync() {
-    this.setState({users: this.state.users});
   }
 
   onUsersChange(values) {
@@ -107,15 +104,10 @@ class NewPropForm extends React.Component {
           className="btn btn-primary"
           onClick={this.onPropClick}
           disabled={this.state.creating}
-        >{{propLabel}}</button>
+        >{propLabel}</button>
       </div>
     );
   }
 }
-
-NewPropForm.propTypes = {
-  users: React.PropTypes.object.isRequired,
-  onPropCreated: React.PropTypes.func.isRequired,
-};
 
 export default NewPropForm;

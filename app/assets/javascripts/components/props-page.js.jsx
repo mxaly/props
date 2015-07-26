@@ -1,6 +1,8 @@
 import React from 'react';
-import NewPropFormComponent from './new-prop-form';
+
+import NewPropFormComponent from './props-form';
 import PropsListComponent from './props-list';
+
 import PropsStore from './../flux/props-store';
 import Actions from './../flux/props-actions';
 
@@ -36,12 +38,9 @@ class PropsPage extends React.Component {
   }
 
   render() {
-    const form = (
-      <NewPropFormComponent/>
-    );
     return (
       <div>
-        {this.props.showForm ? form : null}
+        <NewPropFormComponent/>
         <PropsListComponent
           props={this.state.props}
           meta={this.state.meta}
@@ -51,11 +50,5 @@ class PropsPage extends React.Component {
     );
   }
 }
-
-PropsPage.propTypes = {
-  props: React.PropTypes.object.isRequired,
-  users: React.PropTypes.object.isRequired,
-  showForm: React.PropTypes.bool,
-};
 
 export default PropsPage;

@@ -1,6 +1,6 @@
 import React from 'react';
-import PropComponent from './prop';
-import PaginationComponent from './pagination';
+import PropComponent from './item';
+import PaginationComponent from './../shared/pagination';
 
 class PropsList extends React.Component {
   constructor(props) {

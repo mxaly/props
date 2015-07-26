@@ -13,6 +13,4 @@
       @show @layout
 
     propsRegion: (show_header) ->
-      React.render(React.createElement(PropsPageComponent,
-        showForm: show_header
-      ), $('.props-region')[0])
+      React.render(React.createElement(PropsPageComponent), $('.props-region')[0])

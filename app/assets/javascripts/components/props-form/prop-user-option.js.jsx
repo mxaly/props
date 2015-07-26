@@ -25,7 +25,7 @@ Option.propTypes = {
   mouseEnter: React.PropTypes.func,                   // method to handle mouseEnter on option element
   mouseLeave: React.PropTypes.func,                   // method to handle mouseLeave on option element
   option: React.PropTypes.object.isRequired,          // object that is base for that option
-  renderFunc: React.PropTypes.func                    // method passed to ReactSelect component to render label text
+  renderFunc: React.PropTypes.func,                   // method passed to ReactSelect component to render label text
 };
 
 export default Option;

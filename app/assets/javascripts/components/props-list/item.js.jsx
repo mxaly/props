@@ -1,8 +1,10 @@
 import React from 'react';
-import PropReceiversComponent from './prop-receivers';
-import VoteComponent from './vote';
 import moment from 'moment';
-import Actions from './../flux/props-actions';
+
+import Actions from './../../flux/props-actions';
+
+import VoteComponent from './vote';
+import UserComponent from './user';
 
 class Prop extends React.Component {
   constructor(props) {
@@ -14,20 +16,19 @@ class Prop extends React.Component {
     Actions.upVote(this.props.prop);
   }
 
+
   render() {
-    const propser = this.props.prop.propser;
-    const propserUrl = `#users/${propser ? propser.id : ''}`;
-    const propserAvatar = propser ? propser.avatarUrl : '';
     const createdAt = moment(this.props.prop.created_at).fromNow();
+    const receivers = this.props.prop.users.map((receiver) => {
+      return <UserComponent user={receiver} key={receiver.id}/>;
+    });
 
     return (
       <div className="row list-group-item props-list-item">
         <div className="col-xs-12 prop-users">
-          <a className="prop-gaver" href={propserUrl}>
-            <img src= {propserAvatar}></img>
-          </a>
+          <UserComponent user={this.props.prop.propser}/>
           <i className="glyphicon glyphicon-chevron-right prop-to"></i>
-          <PropReceiversComponent users={this.props.prop.users}/>
+          {receivers}
           <div className="col-xs-12 prop-content">
             <p className="lead prop-body">
               {this.props.prop.body}
