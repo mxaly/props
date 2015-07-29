@@ -1,9 +1,6 @@
 {
   "name": "props",
   "devDependencies": {
-    "babelify": "^6.1.3",
-    "browserify": "^10.2.6",
-    "browserify-incremental": "^3.0.1",
     "classnames": "^2.1.3",
     "jest-cli": "^0.4.15",
     "react": "^0.13.3"
