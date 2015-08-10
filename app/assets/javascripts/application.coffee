@@ -20,7 +20,7 @@
 #= require_tree ./backbone/lib/controllers
 #= require_tree ./backbone/lib/components
 
-#= require react/bundle
+#= require generated/react-bundle
 
 #= require_tree ./backbone/entities
 #= require_tree ./backbone/apps

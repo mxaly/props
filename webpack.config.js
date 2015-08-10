@@ -1,14 +1,14 @@
 module.exports = {
-  context: __dirname + "/app/assets/javascripts",
+  context: __dirname + "/react",
   entry: "./components",
   output: {
-    path: __dirname + "/app/assets/javascripts/react",
-    filename: "bundle.js"
+    path: __dirname + "/app/assets/javascripts/generated",
+    filename: "react-bundle.js"
   },
   module: {
     loaders: [
       {
-        test: /\.js.jsx$/,
+        test: /\.jsx?$/,
         exclude: /(node_modules|bower_components)/,
         loader: "babel-loader"
       }

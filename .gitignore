@@ -83,3 +83,5 @@ tags
 
 # Ignore node modules
 node_modules
+# Ignore generated javascript
+app/assets/javascripts/generated
